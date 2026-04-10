@@ -1,0 +1,311 @@
+/* UI UX PRO MAX 设计系统 - 策略配置器样式 */
+/* 使用统一的金融黄金暗黑主题设计系统 */
+
+.strategy-configurator {
+  padding: 0;
+}
+
+.code-preview {
+  position: relative;
+  max-height: 500px;
+  overflow: auto;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-top: var(--space-2);
+  border: 1px solid var(--border-secondary);
+}
+
+.code-preview pre {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.code-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-color: #fafafa;
+  border: 2px dashed #d9d9d9;
+  border-radius: 4px;
+  padding: 40px;
+  text-align: center;
+}
+
+.fullscreen-code {
+  height: 70vh;
+  overflow: auto;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.fullscreen-code pre {
+  margin: 0;
+  color: #d4d4d4;
+  font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 参数配置表单样式 */
+.strategy-configurator .ant-input,
+.strategy-configurator .ant-select-selector,
+.strategy-configurator .ant-slider {
+  transition: all 0.3s ease;
+}
+
+.strategy-configurator .ant-input:hover,
+.strategy-configurator .ant-select:hover .ant-select-selector {
+  border-color: #1890ff;
+}
+
+.strategy-configurator .ant-slider-track {
+  background-color: #1890ff;
+}
+
+.strategy-configurator .ant-slider-handle {
+  border-color: #1890ff;
+}
+
+.strategy-configurator .ant-slider-handle:hover {
+  border-color: #40a9ff;
+}
+
+/* 步骤条样式 */
+.strategy-configurator .ant-steps {
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.strategy-configurator .ant-steps-item-process .ant-steps-item-icon {
+  background: #1890ff;
+  border-color: #1890ff;
+}
+
+.strategy-configurator .ant-steps-item-finish .ant-steps-item-icon {
+  border-color: #52c41a;
+}
+
+.strategy-configurator .ant-steps-item-finish .ant-steps-item-icon .ant-steps-icon {
+  color: #52c41a;
+}
+
+/* 折叠面板样式 */
+.strategy-configurator .ant-collapse {
+  background: transparent;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.strategy-configurator .ant-collapse-header {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.strategy-configurator .ant-collapse-content {
+  background: #fafafa;
+}
+
+/* 分隔线样式 */
+.strategy-configurator .ant-divider {
+  margin: 24px 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .strategy-configurator .ant-row {
+    margin: -8px;
+  }
+
+  .strategy-configurator .ant-col {
+    padding: 8px;
+  }
+
+  .code-preview {
+    max-height: 300px;
+    font-size: 12px;
+  }
+
+  .code-placeholder {
+    min-height: 150px;
+    padding: 20px;
+  }
+
+  .strategy-configurator .ant-steps {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .strategy-configurator .ant-steps-item {
+    margin-bottom: 8px;
+  }
+
+  .fullscreen-code {
+    height: 50vh;
+    font-size: 12px;
+  }
+}
+
+/* 卡片悬停效果 */
+.strategy-configurator .ant-card {
+  transition: all 0.3s ease;
+}
+
+.strategy-configurator .ant-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮样式 */
+.strategy-configurator .ant-btn-primary {
+  background: #1890ff;
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+.strategy-configurator .ant-btn-primary:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+}
+
+.strategy-configurator .ant-btn-primary:disabled {
+  background: #d9d9d9;
+  border-color: #d9d9d9;
+  box-shadow: none;
+}
+
+/* 统计数字样式 */
+.strategy-configurator .ant-statistic {
+  text-align: center;
+  padding: 8px;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+.strategy-configurator .ant-statistic-title {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-bottom: 4px;
+}
+
+.strategy-configurator .ant-statistic-content {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Tag标签样式 */
+.strategy-configurator .ant-tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* 警告框样式 */
+.strategy-configurator .ant-alert {
+  border-radius: 8px;
+}
+
+.strategy-configurator .ant-alert-info {
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+}
+
+.strategy-configurator .ant-alert-warning {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+}
+
+/* 模态框样式 */
+.strategy-configurator .ant-modal-content {
+  border-radius: 8px;
+}
+
+.strategy-configurator .ant-modal-header {
+  border-radius: 8px 8px 0 0;
+  background: #fafafa;
+}
+
+.strategy-configurator .ant-modal-footer {
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 滚动条样式优化 */
+.code-preview::-webkit-scrollbar,
+.fullscreen-code::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.code-preview::-webkit-scrollbar-track,
+.fullscreen-code::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 4px;
+}
+
+.code-preview::-webkit-scrollbar-thumb,
+.fullscreen-code::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.code-preview::-webkit-scrollbar-thumb:hover,
+.fullscreen-code::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* 代码高亮语法（简化版） */
+.code-preview .keyword {
+  color: #569cd6;
+}
+
+.code-preview .string {
+  color: #ce9178;
+}
+
+.code-preview .comment {
+  color: #6a9955;
+}
+
+.code-preview .number {
+  color: #b5cea8;
+}
+
+.code-preview .function {
+  color: #dcdcaa;
+}
+
+/* 加载状态 */
+.code-placeholder .ant-alert {
+  max-width: 400px;
+}
+
+/* 策略参数表单布局 */
+.strategy-configurator .ant-form-item {
+  margin-bottom: 12px;
+}
+
+.strategy-configurator .ant-form-item-label {
+  padding-bottom: 4px;
+}
+
+.strategy-configurator .ant-form-item-label label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* 滑动条标记 */
+.strategy-configurator .ant-slider-mark-text {
+  font-size: 12px;
+  color: #8c8c8c;
+}

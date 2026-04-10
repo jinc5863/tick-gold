@@ -1,0 +1,129 @@
+version: '3.8'
+
+services:
+  # PostgreSQL + TimescaleDB（主数据库）
+  postgres:
+    image: timescale/timescaledb:latest-pg14
+    container_name: tick-gold-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tickgold
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d tickgold"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tick-gold-network
+
+  # Redis缓存和消息队列
+  redis:
+    image: redis:7-alpine
+    container_name: tick-gold-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass RedisPassword123
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tick-gold-network
+
+  # pgAdmin（数据库管理界面）
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: tick-gold-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@tickgold.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - tick-gold-network
+
+  # 后端API服务（Python FastAPI）
+  backend:
+    build:
+      context: ./src/backend
+      dockerfile: Dockerfile.backend
+    container_name: tick-gold-backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://postgres:password@postgres:5432/tickgold
+      REDIS_URL: redis://default:RedisPassword123@redis:6379
+      JWT_SECRET: development-secret-key-change-in-production
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      DEBUG: "true"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src/backend:/app
+      - ./config:/app/config
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - tick-gold-network
+    command: >
+      sh -c "python main.py --host 0.0.0.0 --port 8000"
+
+  # 前端服务（开发模式）
+  frontend:
+    build:
+      context: ./src
+      dockerfile: Dockerfile.frontend
+    container_name: tick-gold-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+      - "1420:1420"  # Tauri开发端口
+    volumes:
+      - ./src:/app
+      - /app/node_modules
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000
+      VITE_WS_BASE_URL: ws://localhost:9000
+    depends_on:
+      - backend
+    networks:
+      - tick-gold-network
+    command: npm run dev -- --host
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+networks:
+  tick-gold-network:
+    driver: bridge
+
+# 使用说明：
+# 启动基础服务：docker-compose up -d postgres redis
+# 启动所有服务：docker-compose up -d
+# 停止服务：docker-compose down
+# 查看日志：docker-compose logs -f

@@ -1,0 +1,5 @@
+{
+  "claudeCode.statusBar.enabled": true,
+  "claudeCode.statusBar.showModel": true,
+  "claudeCode.statusBar.showContextPercentage": true
+}

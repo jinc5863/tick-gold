@@ -1,0 +1,474 @@
+/* UI UX PRO MAX 设计系统 - 策略卡片样式 */
+/* 使用统一的金融黄金暗黑主题设计系统 */
+
+.strategy-card {
+  background: linear-gradient(145deg, var(--bg-card), var(--bg-surface));
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border-secondary);
+  margin-bottom: var(--space-4);
+  transition: all var(--duration-normal) var(--timing-ease-out);
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 2px rgba(var(--text-primary-rgb), 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.strategy-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 2px rgba(var(--text-primary-rgb), 0.1);
+  border-color: var(--border-hover);
+}
+
+.strategy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-success), var(--color-warning));
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--timing-ease);
+}
+
+.strategy-card:hover::before {
+  opacity: 1;
+}
+
+.strategy-card.compact {
+  border-radius: var(--radius-xl);
+  padding: var(--space-3);
+}
+
+.strategy-card.compact:hover {
+  transform: translateY(-2px);
+}
+
+/* 卡片头部 */
+.strategy-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--border-secondary);
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), rgba(255, 215, 0, 0.03));
+}
+
+.strategy-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.strategy-status-badge {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.strategy-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-shadow: 0 1px 1px rgba(var(--text-primary-rgb), 0.5);
+}
+
+.strategy-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.strategy-type-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.timeframe-tag {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-secondary);
+  border: none;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.strategy-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.strategy-switch .ant-switch {
+  background: linear-gradient(145deg, #e8eaec, #f0f2f5);
+  box-shadow:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.05),
+    inset -2px -2px 4px rgba(var(--text-primary-rgb), 0.8);
+  border: none;
+}
+
+.strategy-switch .ant-switch-checked {
+  background: linear-gradient(145deg, #52c41a, #73d13d);
+  box-shadow: 0 2px 8px rgba(82, 196, 26, 0.3);
+}
+
+.strategy-action-button {
+  background: linear-gradient(145deg, #f0f2f5, #e8eaec);
+  border: none;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  box-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.05),
+    -2px -2px 4px rgba(var(--text-primary-rgb), 0.8);
+}
+
+.strategy-action-button:hover {
+  color: #1890ff;
+  box-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.05),
+    -1px -1px 2px rgba(var(--text-primary-rgb), 0.8),
+    inset 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 卡片正文 */
+.strategy-description {
+  padding: 16px 24px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* 标签页 */
+.strategy-tabs {
+  padding: 16px 24px 0;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+}
+
+.tab-button {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tab-button:hover {
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.08);
+}
+
+.tab-button.active {
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.15);
+  position: relative;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #1890ff;
+  border-radius: 1px;
+}
+
+/* 性能指标 */
+.performance-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.performance-metric {
+  background: rgba(var(--text-primary-rgb), 0.6);
+  border-radius: 12px;
+  padding: 12px;
+  transition: transform 0.2s;
+}
+
+.performance-metric:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+/* 参数列表 */
+.parameters-list {
+  padding: 8px 0;
+}
+
+.parameters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.parameter-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(var(--text-primary-rgb), 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.parameter-key {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.parameter-value {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 600;
+  background: rgba(24, 144, 255, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.more-parameters {
+  text-align: center;
+  padding: 12px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* 卡片底部 */
+.strategy-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.02));
+}
+
+.last-updated {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.footer-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-actions .ant-btn-link {
+  font-size: 12px;
+  padding: 0;
+  height: auto;
+  color: var(--text-tertiary);
+}
+
+.footer-actions .ant-btn-link:hover {
+  color: #1890ff;
+}
+
+/* 暗色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .strategy-card {
+    background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+    box-shadow:
+      8px 8px 16px rgba(0, 0, 0, 0.3),
+      -8px -8px 16px rgba(var(--text-primary-rgb), 0.05),
+      inset 1px 1px 2px rgba(var(--text-primary-rgb), 0.1);
+  }
+
+  .strategy-title h3 {
+    color: #f0f0f0;
+    text-shadow: none;
+  }
+
+  .strategy-description {
+    color: #bfbfbf;
+  }
+
+  .parameter-key {
+    color: #bfbfbf;
+  }
+
+  .parameter-value {
+    color: #f0f0f0;
+    background: rgba(24, 144, 255, 0.15);
+  }
+
+  .footer-actions .ant-btn-link,
+  .last-updated {
+    color: var(--text-tertiary);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .strategy-card-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .strategy-header-right {
+    justify-content: space-between;
+  }
+
+  .parameters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .footer-actions {
+    justify-content: center;
+  }
+}
+
+/* 动画 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* 加载状态 */
+.strategy-card.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.strategy-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--text-primary-rgb), 0.3),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* 状态颜色 */
+.status-running .strategy-status-badge {
+  background: #52c41a;
+}
+
+.status-paused .strategy-status-badge {
+  background: #faad14;
+}
+
+.status-stopped .strategy-status-badge {
+  background: #d9d9d9;
+}
+
+.status-error .strategy-status-badge {
+  background: #ff4d4f;
+  animation: error-pulse 1s infinite;
+}
+
+@keyframes error-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* 自定义滚动条 */
+.parameters-grid,
+.performance-metrics {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.parameters-grid::-webkit-scrollbar,
+.performance-metrics::-webkit-scrollbar {
+  width: 6px;
+}
+
+.parameters-grid::-webkit-scrollbar-track,
+.performance-metrics::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 3px;
+}
+
+.parameters-grid::-webkit-scrollbar-thumb,
+.performance-metrics::-webkit-scrollbar-thumb {
+  background: rgba(24, 144, 255, 0.3);
+  border-radius: 3px;
+}
+
+.parameters-grid::-webkit-scrollbar-thumb:hover,
+.performance-metrics::-webkit-scrollbar-thumb:hover {
+  background: rgba(24, 144, 255, 0.5);
+}

@@ -1,0 +1,310 @@
+/* SiliconFlow 布局系统样式 - 紧凑专业版 */
+/* 基于 design-system-siliconflow.css 设计系统 */
+
+/* 主布局容器 */
+.siliconflow-layout {
+  min-height: 100vh;
+  background-color: var(--bg-deep);
+  font-family: var(--font-ui-silicon);
+}
+
+/* 侧边栏样式 - 紧密布局 */
+.siliconflow-sider {
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-lg) !important;
+  position: fixed !important;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: all var(--duration-base-silicon) var(--easing-smooth-silicon);
+}
+
+.ant-layout-sider-dark {
+  background-color: var(--bg-surface) !important;
+}
+
+/* 侧边栏内容 */
+.siliconflow-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--padding-element-sm) 0;
+}
+
+/* 品牌标识区域 */
+.sidebar-header {
+  padding: var(--padding-element) var(--padding-element);
+  border-bottom: 1px solid var(--border-secondary);
+  margin-bottom: var(--margin-element);
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-hierarchical-2);
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(145deg, var(--gold-primary), var(--gold-accent));
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo .anticon {
+  font-size: 20px;
+  color: var(--text-high-contrast);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: var(--text-silicon-h4) !important;
+  font-weight: 700;
+  color: var(--text-high-contrast);
+  margin: 0;
+  line-height: var(--leading-tight);
+  font-family: var(--font-display);
+}
+
+.brand-subtitle {
+  font-size: var(--text-silicon-body-xs);
+  color: var(--text-descriptive);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+/* 主要导航区域 */
+.main-navigation {
+  flex: 1;
+  padding: 0 var(--padding-element);
+  overflow-y: auto;
+}
+
+/* 侧边栏底部区域 */
+.sidebar-footer {
+  padding: var(--padding-element) var(--margin-element);
+  border-top: 1px solid var(--border-secondary);
+  background-color: var(--bg-subtle);
+  margin-top: auto;
+}
+
+.system-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-hierarchical-1);
+  margin-bottom: var(--margin-element-sm);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--status-success);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.system-status-indicator span {
+  font-size: var(--text-silicon-body-xs);
+  color: var(--text-descriptive);
+  font-weight: 500;
+}
+
+.performance-badge {
+  background: linear-gradient(145deg, var(--gold-primary), var(--gold-accent));
+  border-radius: var(--radius-full);
+  padding: var(--spacing-hierarchical-0) var(--spacing-hierarchical-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-hierarchical-0);
+}
+
+.badge-value {
+  font-size: var(--text-silicon-body-xs);
+  font-weight: 700;
+  color: var(--text-high-contrast);
+  letter-spacing: 1px;
+}
+
+.badge-label {
+  font-size: var(--text-silicon-body-xs);
+  color: var(--text-high-contrast);
+  opacity: 0.9;
+}
+
+/* 内容布局 */
+.siliconflow-content-layout {
+  margin-left: 240px;
+  transition: margin-left var(--duration-normal) var(--ease-out-expo);
+}
+
+.siliconflow-sider.collapsed ~ .siliconflow-content-layout {
+  margin-left: 80px;
+}
+
+/* 头部样式 */
+.siliconflow-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-secondary);
+  padding: 0 var(--padding-element) !important;
+  height: var(--spacing-silicon-header-height) !important;
+  line-height: var(--spacing-silicon-header-height) !important;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: var(--spacing-hierarchical-3);
+}
+
+.mobile-menu-btn,
+.desktop-toggle-btn {
+  color: var(--text-high-contrast) !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 18px !important;
+  padding: var(--spacing-hierarchical-0) var(--spacing-hierarchical-2) !important;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+
+.mobile-menu-btn:hover,
+.desktop-toggle-btn:hover {
+  color: var(--gold-primary) !important;
+  transform: scale(1.1);
+}
+
+.header-toolbar {
+  flex: 1;
+}
+
+/* 主内容区域 */
+.siliconflow-main-content {
+  background-color: var(--bg-deep);
+  padding: var(--spacing-hierarchical-6);
+  min-height: calc(100vh - var(--spacing-silicon-header-height));
+}
+
+.content-inner {
+  max-width: 100%;
+}
+
+/* 移动端抽屉导航 */
+.mobile-nav-drawer .ant-drawer-content {
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-strong);
+}
+
+.mobile-nav-drawer .ant-drawer-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-secondary);
+  padding: var(--padding-element) var(--margin-element);
+}
+
+.mobile-nav-drawer .ant-drawer-title {
+  color: var(--text-high-contrast);
+  font-size: var(--text-silicon-h4);
+  font-weight: 600;
+  font-family: var(--font-ui);
+}
+
+/* 响应式设计 */
+/* 平板适配 */
+@media (max-width: 1024px) {
+  .siliconflow-content-layout {
+    margin-left: 200px;
+  }
+
+  .siliconflow-sider {
+    width: 200px !important;
+  }
+
+  .siliconflow-sider.collapsed ~ .siliconflow-content-layout {
+    margin-left: 80px;
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .siliconflow-content-layout {
+    margin-left: 0 !important;
+  }
+
+  .siliconflow-header {
+    padding: 0 var(--spacing-hierarchical-4) !important;
+  }
+
+  .siliconflow-main-content {
+    padding: var(--spacing-hierarchical-4);
+  }
+}
+
+/* 侧边栏滚动条优化 */
+.main-navigation::-webkit-scrollbar {
+  width: 4px;
+}
+
+.main-navigation::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-navigation::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: var(--radius-full);
+}
+
+.main-navigation::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* 动画效果 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 8px var(--status-success);
+  }
+}
+
+/* 侧边栏折叠动画 */
+.siliconflow-sider {
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.ant-layout-sider-collapsed .brand-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.ant-layout-sider-collapsed .brand-identity {
+  justify-content: center;
+}
+
+.ant-layout-sider-collapsed .sidebar-footer {
+  padding: var(--spacing-hierarchical-3);
+}
+
+.ant-layout-sider-collapsed .system-status-indicator span,
+.ant-layout-sider-collapsed .badge-label {
+  display: none;
+}

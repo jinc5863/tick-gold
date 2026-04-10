@@ -1,0 +1,47 @@
+{
+  "app": {
+    "name": "Tick Gold - XAUUSD量化交易系统",
+    "version": "0.1.0",
+    "description": "专为XAUUSD黄金交易对设计的量化交易系统，支持M1/M5/M15/M30四个交易周期",
+    "author": "Quantum Finance Architect"
+  },
+  "trading": {
+    "symbol": "XAUUSD",
+    "timeframes": ["M1", "M5", "M15", "M30"],
+    "default_timeframe": "M1",
+    "max_tick_rate": 21340,  # ticks/sec
+    "data_precision": 5  # 小数位数
+  },
+  "risk": {
+    "max_drawdown": 0.02,  # 2%
+    "max_daily_loss": 0.005,  # 0.5%
+    "position_size": 0.01,  # 1%
+    "stop_loss": 0.005,  # 0.5%
+    "take_profit": 0.01,  # 1%
+    "gap_risk": 0.01,  # 1%
+    "overnight_risk": 0.005  # 0.5%
+  },
+  "data": {
+    "tick_buffer_size": 1000000,  # tick数据缓冲区大小
+    "historical_data_period": "2y",  # 历史数据保留期
+    "data_source": "MT5",
+    "zmq_port": 1611
+  },
+  "ui": {
+    "theme": "pro_max",
+    "default_dark_mode": true,
+    "refresh_interval": 100,  # ms
+    "chart_update_interval": 1000  # ms
+  },
+  "performance": {
+    "target_throughput": 100000,  # ticks/sec
+    "target_latency": 50,  # ms
+    "compression_ratio": 10  # 压缩比
+  },
+  "compliance": {
+    "audit_enabled": true,
+    "risk_monitoring": true,
+    "report_generation": true,
+    "regulatory_standards": "ULTRA"
+  }
+}

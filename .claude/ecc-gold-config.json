@@ -1,0 +1,31 @@
+{
+  "name": "tick-gold-ecc-config",
+  "description": "Tick Gold黄金量化交易系统ECC配置",
+  "rules": [
+    "tick-gold-trading.md",
+    "gold-quant-trading.md"
+  ],
+  "agents": [
+    "gold-trading-orchestrator",
+    "gold-trading-specialist",
+    "performance-monitoring-agent"
+  ],
+  "skills": [
+    "gold-quant-trading",
+    "python-patterns",
+    "frontend-patterns",
+    "database-migrations",
+    "tdd-workflow"
+  ],
+  "performance": {
+    "throughput_target": 21340,
+    "latency_target": 50,
+    "data_quality_target": 0.987
+  },
+  "gold_characteristics": {
+    "gap_risk": 0.01,
+    "overnight_risk": 0.005,
+    "asian_session_filter": true,
+    "gold_volatility_adjusted": true
+  }
+}

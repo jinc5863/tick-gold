@@ -1,0 +1,378 @@
+/* UI UX PRO MAX 设计系统 - 交易信号样式 */
+/* 使用统一的金融黄金暗黑主题设计系统 */
+
+.trade-signals {
+  padding: 0;
+}
+
+/* 统计卡片样式 */
+.signal-stats .ant-card {
+  transition: all var(--duration-normal) var(--timing-ease);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.signal-stats .ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.signal-stats .ant-statistic-title {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-medium);
+}
+
+.signal-stats .ant-statistic-content {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.signal-stats .ant-statistic-content-value {
+  transition: all var(--duration-normal) var(--timing-ease);
+}
+
+.signal-stats .ant-statistic:hover .ant-statistic-content-value {
+  transform: scale(1.05);
+}
+
+/* 表格样式优化 */
+.trade-signals .ant-table {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.trade-signals .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #595959;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.trade-signals .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.trade-signals .ant-table-tbody > tr:hover > td {
+  background: rgba(24, 144, 255, 0.05);
+}
+
+/* 信号摘要样式 */
+.signal-summary {
+  margin-top: 20px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+}
+
+.signal-summary .ant-alert {
+  border: none;
+  background: transparent;
+}
+
+/* 订单统计样式 */
+.order-stats {
+  margin-top: 20px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.order-stats .ant-statistic {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+/* 执行日志样式 */
+.trade-signals .ant-timeline {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.trade-signals .ant-timeline-item {
+  padding-bottom: 12px;
+}
+
+.trade-signals .ant-timeline-item-tail {
+  background-color: #f0f0f0;
+}
+
+.trade-signals .ant-timeline-item-head {
+  width: 12px;
+  height: 12px;
+  margin-left: -2px;
+}
+
+/* 风险管理提醒 */
+.trade-signals .ant-card-inner {
+  background: #fffbe6;
+}
+
+/* 快速操作按钮样式 */
+.trade-signals .ant-space-vertical {
+  width: 100%;
+}
+
+.trade-signals .ant-space-vertical .ant-btn {
+  border-radius: 8px;
+  height: 40px;
+  font-weight: 500;
+}
+
+/* 信号详情模态框 */
+.signal-detail {
+  padding: 8px 0;
+}
+
+.signal-detail .ant-statistic {
+  margin-bottom: 8px;
+}
+
+.signal-detail .ant-progress {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+/* 交易配置表单 */
+.trade-signals .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.trade-signals .ant-form-item-label > label {
+  font-weight: 500;
+  color: #595959;
+}
+
+/* 标签样式 */
+.trade-signals .ant-tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* 徽章样式 */
+.trade-signals .ant-badge {
+  font-size: 12px;
+}
+
+.trade-signals .ant-badge-status-text {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .trade-signals .ant-col {
+    margin-bottom: 16px;
+  }
+
+  .signal-stats .ant-col {
+    margin-bottom: 8px;
+  }
+
+  .trade-signals .ant-table {
+    font-size: 12px;
+  }
+
+  .trade-signals .ant-table-thead > tr > th {
+    font-size: 11px;
+    padding: 8px !important;
+  }
+
+  .trade-signals .ant-table-tbody > tr > td {
+    padding: 8px !important;
+  }
+
+  .signal-summary .ant-row {
+    flex-direction: column;
+  }
+
+  .signal-summary .ant-col {
+    margin-bottom: 16px;
+  }
+
+  .order-stats .ant-row {
+    flex-direction: column;
+  }
+
+  .order-stats .ant-col {
+    margin-bottom: 12px;
+  }
+
+  .trade-signals .ant-btn {
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .trade-signals .ant-table {
+    font-size: 13px;
+  }
+}
+
+/* 动画效果 */
+@keyframes signalPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(82, 196, 26, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(82, 196, 26, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(82, 196, 26, 0);
+  }
+}
+
+.buy-signal {
+  animation: signalPulse 2s infinite;
+}
+
+@keyframes newSignal {
+  0% {
+    background-color: rgba(82, 196, 26, 0.1);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.trade-signals .ant-table-tbody > tr.new-signal {
+  animation: newSignal 2s ease-out;
+}
+
+/* 时间线滚动条样式 */
+.trade-signals .ant-timeline::-webkit-scrollbar {
+  width: 4px;
+}
+
+.trade-signals .ant-timeline::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 2px;
+}
+
+.trade-signals .ant-timeline::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 2px;
+}
+
+.trade-signals .ant-timeline::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* 表格行交替背景色 */
+.trade-signals .ant-table-tbody > tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+/* 高置信度信号特殊样式 */
+.high-confidence .ant-table-cell {
+  background: rgba(82, 196, 26, 0.05) !important;
+}
+
+/* 待执行订单特殊样式 */
+.pending-order {
+  position: relative;
+}
+
+.pending-order::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #1890ff, #40a9ff);
+  animation: pendingAnimation 2s infinite;
+}
+
+@keyframes pendingAnimation {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+/* 卡片标题图标样式 */
+.trade-signals .ant-card-head-title svg {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* 分隔线样式 */
+.trade-signals .ant-divider {
+  margin: 20px 0;
+}
+
+/* 空状态样式 */
+.trade-signals .ant-empty {
+  padding: 40px 0;
+}
+
+.trade-signals .ant-empty-description {
+  color: #8c8c8c;
+}
+
+/* 切换按钮组样式 */
+.trade-signals .ant-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trade-signals .ant-radio-button-wrapper {
+  flex: 1;
+  text-align: center;
+}
+
+/* 选择器下拉菜单样式 */
+.trade-signals .ant-select-dropdown {
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* 悬浮提示样式 */
+.trade-signals .ant-tooltip-inner {
+  border-radius: 6px;
+  font-size: 12px;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+/* 性能统计数字 */
+.trade-signals .ant-statistic-content-suffix {
+  font-size: 12px;
+  font-weight: normal;
+  color: #8c8c8c;
+  margin-left: 4px;
+}
+
+/* 打印优化 */
+@media print {
+  .trade-signals .ant-table {
+    break-inside: avoid;
+  }
+
+  .trade-signals .ant-timeline,
+  .trade-signals .ant-card-extra,
+  .trade-signals .ant-btn {
+    display: none !important;
+  }
+
+  .signal-summary .ant-alert {
+    background: transparent !important;
+    border: 1px solid #d9d9d9 !important;
+  }
+}

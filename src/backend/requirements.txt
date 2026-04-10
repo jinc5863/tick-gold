@@ -1,0 +1,46 @@
+# Python量化交易系统依赖
+
+# 核心库
+numpy==2.4.4
+pandas==2.3.3
+scikit-learn==1.8.0
+ta-lib==0.6.8
+backtrader==1.9.78.123
+vectorbt==0.28.5
+
+# Web框架
+fastapi==0.135.3
+uvicorn==0.44.0
+pydantic==2.12.5
+python-dotenv==1.0.1
+PyJWT==2.10.0
+python-multipart==0.0.16
+
+# 数据库
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+asyncpg==0.30.0
+aioredis==2.0.1
+redis==5.2.0
+orjson==3.10.7
+
+# 日期时间处理
+python-dateutil==2.9.0.post0
+pytz==2026.1.post1
+
+# 报告生成
+reportlab==4.2.2
+openpyxl==3.1.5
+
+# 异步处理
+asyncio==3.4.3
+
+# 类型提示
+typing-extensions==4.15.0
+
+# 开发依赖（仅用于开发环境）
+pytest==8.3.3
+pytest-asyncio==0.24.0
+pytest-cov==5.0.0
+
+# 注意：生产环境中请移除开发依赖

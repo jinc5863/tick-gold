@@ -1,0 +1,249 @@
+# ============== Tick Gold 量化交易系统 .gitignore ==============
+
+# 项目特定忽略
+/config/.env                    # 环境变量（敏感信息）
+/config/*.secret               # 任何秘密文件
+/config/app_config.local.json  # 本地配置覆盖
+
+
+# ========== Python 相关 ==========
+# Python虚拟环境
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python包目录
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+
+# ========== Node.js / JavaScript 相关 ==========
+# 依赖目录
+node_modules/
+
+# 构建产物
+dist/
+dist-ssr/
+*.local
+
+# 日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 操作系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+# ========== Rust / Tauri 相关 ==========
+# Rust构建产物
+**/target/
+**/Cargo.lock
+
+# Tauri特定
+**/src-tauri/target/
+**/.tauri/
+**/bundle/
+
+
+# ========== 前端构建产物 ==========
+# Vite构建
+/dist/
+/out-tsc/
+
+# 缓存
+.cache/
+.temp/
+
+
+# ========== IDE 配置文件 ==========
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.settings/
+.project
+.classpath
+.factorypath
+
+# NetBeans
+nbproject/
+nb-configuration.xml
+
+
+# ========== 系统文件 ==========
+# 操作系统临时文件
+*.swp
+*.swo
+*~
+
+# 备份文件
+*.bak
+*.backup
+*.orig
+*.old
+
+
+# ========== 日志文件 ==========
+logs/
+*.log
+
+
+# ========== 测试相关 ==========
+# 覆盖率报告
+coverage/
+.nyc_output/
+
+# 测试结果
+test-results/
+
+
+# ========== 数据库相关 ==========
+# SQLite
+*.db
+*.sqlite
+*-journal
+
+# PostgreSQL数据
+/pgdata/
+
+
+# ========== Docker 相关 ==========
+# Docker镜像
+*.tar
+*.gz
+
+# Docker compose
+docker-compose.override.yml
+
+
+# ========== 文档构建产物 ==========
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+
+# ========== 黄金交易专用 ==========
+# 交易数据缓存
+/data/
+/temp_data/
+*.tickdata
+*.marketdata
+
+# 回测结果
+/backtest_results/
+*.backtest
+*.strategy_result
+
+# 风险报告
+/risk_reports/
+*.risk_report
+
+
+# ========== 自定义忽略规则 ==========
+# 根据Tick Gold项目特性添加
+/src/src-tauri/target/          # Rust构建目录（已清理）
+/src/backend/venv/              # Python虚拟环境（已清理）
+/src/backend/python/__pycache__/
+
+# Mock服务器数据
+/backend/mock_data/
+*.mock
+
+# 性能测试数据
+/perf_data/
+*.perf_log
+
+# 审计日志
+/audit_logs/
+*.audit
+
+# 合规报告
+/compliance_reports/
+*.compliance
+
+# 最后更新: 2026-04-09
+# 为Tick Gold XAUUSD量化交易系统优化
+# Embedded repos (not part of this project)
+agent-skill-creator/
+ecc-plugin/
+
+# Rust submodule
+src/backend/rust/

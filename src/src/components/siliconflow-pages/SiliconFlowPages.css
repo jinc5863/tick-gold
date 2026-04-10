@@ -1,0 +1,332 @@
+/* SiliconFlowPages.css - 所有SiliconFlow页面组件的共享样式 */
+
+/* 页面容器基础样式 */
+.siliconflow-page {
+  min-height: 400px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 卡片容器样式 */
+.chart-container-silicon,
+.strategy-container-silicon,
+.signals-container-silicon {
+  background: var(--color-bg-container, #1A1A24);
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  border-radius: var(--radius-xl-silicon, 16px);
+  box-shadow: var(--shadow-silicon, 0 4px 8px 0 rgba(0, 0, 0, 0.12));
+}
+
+.chart-container-silicon .ant-card-head,
+.strategy-container-silicon .ant-card-head,
+.signals-container-silicon .ant-card-head {
+  background: var(--color-bg-container, #1A1A24);
+  border-bottom: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  border-radius: var(--radius-xl-silicon, 16px) var(--radius-xl-silicon, 16px) 0 0;
+  padding: var(--padding-card-sm, 1rem);
+}
+
+.chart-container-silicon .ant-card-head-title,
+.strategy-container-silicon .ant-card-head-title,
+.signals-container-silicon .ant-card-head-title {
+  font-size: var(--text-h5-silicon, 1.25rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-base, #F3F4F6);
+}
+
+.chart-container-silicon .ant-card-body,
+.strategy-container-silicon .ant-card-body,
+.signals-container-silicon .ant-card-body {
+  padding: var(--padding-card, 1.5rem);
+}
+
+/* 页面标题样式 */
+.siliconflow-page h1,
+.siliconflow-page h2,
+.siliconflow-page h3,
+.siliconflow-page h4,
+.siliconflow-page h5 {
+  color: var(--color-text-base, #F3F4F6);
+  font-weight: var(--font-weight-semibold, 600);
+  margin-bottom: var(--margin-element-sm, 0.75rem);
+}
+
+.siliconflow-page h3 {
+  font-size: var(--text-h5-silicon, 1.25rem);
+}
+
+.siliconflow-page h4 {
+  font-size: var(--text-body-lg, 1.125rem);
+}
+
+.siliconflow-page h5 {
+  font-size: var(--text-body-silicon, 1rem);
+}
+
+/* 段落和文本样式 */
+.siliconflow-page p {
+  color: var(--color-text-secondary, #9CA3AF);
+  margin-bottom: var(--margin-element-sm, 0.75rem);
+  line-height: var(--leading-body-silicon, 1.5);
+}
+
+/* 分页器样式 */
+.siliconflow-page .ant-divider {
+  border-color: var(--color-border, rgba(255, 215, 0, 0.1));
+  margin: var(--margin-block, 2rem) 0;
+}
+
+/* 表格和列表样式 */
+.siliconflow-page table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.siliconflow-page thead tr {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+}
+
+.siliconflow-page th {
+  color: var(--color-text-secondary, #9CA3AF);
+  font-weight: var(--font-weight-medium-silicon, 500);
+  text-align: left;
+  padding: var(--padding-element-sm, 0.75rem) var(--padding-element, 1rem);
+  border-bottom: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+}
+
+.siliconflow-page td {
+  padding: var(--padding-element-sm, 0.75rem) var(--padding-element, 1rem);
+  border-bottom: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+}
+
+.siliconflow-page tbody tr:hover {
+  background: var(--color-fill-secondary, rgba(255, 255, 255, 0.08));
+}
+
+/* 标签样式 */
+.siliconflow-page .ant-tag {
+  border-radius: var(--radius-silicon, 8px);
+  margin-bottom: var(--whitespace-micro, 0.125rem);
+  font-size: var(--text-body-xs, 0.75rem);
+  font-weight: var(--font-weight-medium-silicon, 500);
+  border: 1px solid currentColor;
+  opacity: 0.9;
+}
+
+.siliconflow-page .ant-tag:hover {
+  opacity: 1;
+}
+
+/* 统计数字显示增强 */
+.siliconflow-page .ant-statistic {
+  margin-bottom: var(--margin-element-sm, 0.75rem);
+}
+
+.siliconflow-page .ant-statistic-title {
+  color: var(--color-text-secondary, #9CA3AF);
+  font-size: var(--text-body-sm, 0.875rem);
+  font-weight: var(--font-weight-medium-silicon, 500);
+  margin-bottom: var(--whitespace-micro, 0.125rem);
+}
+
+.siliconflow-page .ant-statistic-content {
+  font-size: var(--text-h5-silicon, 1.25rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-text-base, #F3F4F6);
+}
+
+.siliconflow-page .ant-statistic-content-value {
+  display: inline-block;
+  transition: transform var(--duration-normal, 300ms) ease;
+}
+
+.siliconflow-page .ant-statistic:hover .ant-statistic-content-value {
+  transform: scale(1.05);
+}
+
+/* 按钮样式增强 */
+.siliconflow-page .ant-btn {
+  border-radius: var(--radius-silicon, 8px);
+  font-weight: var(--font-weight-medium-silicon, 500);
+  transition: all var(--duration-fast, 150ms) ease;
+}
+
+.siliconflow-page .ant-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm-silicon, 0 2px 4px 0 rgba(0, 0, 0, 0.08));
+}
+
+.siliconflow-page .ant-btn:active {
+  transform: translateY(0);
+}
+
+/* 警告和提示样式 */
+.siliconflow-page .ant-alert {
+  border-radius: var(--radius-silicon, 8px);
+  border: 1px solid;
+  background: var(--color-bg-container, #1A1A24);
+}
+
+.siliconflow-page .ant-alert-info {
+  border-color: var(--color-info, #3B82F6);
+}
+
+.siliconflow-page .ant-alert-success {
+  border-color: var(--color-success, #10B981);
+}
+
+.siliconflow-page .ant-alert-warning {
+  border-color: var(--color-warning, #F59E0B);
+}
+
+.siliconflow-page .ant-alert-error {
+  border-color: var(--color-error, #EF4444);
+}
+
+/* 进度条样式 */
+.siliconflow-page .ant-progress {
+  margin: var(--margin-element-xs, 0.5rem) 0;
+}
+
+.siliconflow-page .ant-progress-text {
+  color: var(--color-text-secondary, #9CA3AF);
+  font-size: var(--text-body-xs, 0.75rem);
+}
+
+/* 页签样式 */
+.siliconflow-page .ant-tabs {
+  color: var(--color-text-base, #F3F4F6);
+}
+
+.siliconflow-page .ant-tabs-nav::before {
+  border-color: var(--color-border, rgba(255, 215, 0, 0.1));
+}
+
+.siliconflow-page .ant-tabs-tab {
+  color: var(--color-text-secondary, #9CA3AF);
+  transition: all var(--duration-fast, 150ms) ease;
+}
+
+.siliconflow-page .ant-tabs-tab:hover {
+  color: var(--color-text-base, #F3F4F6);
+}
+
+.siliconflow-page .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--color-primary, #FFD700);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.siliconflow-page .ant-tabs-ink-bar {
+  background: var(--color-primary, #FFD700);
+}
+
+/* 表单样式 */
+.siliconflow-page .ant-form-item-label > label {
+  color: var(--color-text-secondary, #9CA3AF);
+  font-size: var(--text-body-sm, 0.875rem);
+}
+
+.siliconflow-page .ant-input,
+.siliconflow-page .ant-select-selector {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  color: var(--color-text-base, #F3F4F6);
+  transition: all var(--duration-fast, 150ms) ease;
+}
+
+.siliconflow-page .ant-input:hover,
+.siliconflow-page .ant-select-selector:hover {
+  border-color: var(--color-primary, #FFD700);
+  background: var(--color-fill-secondary, rgba(255, 255, 255, 0.08));
+}
+
+.siliconflow-page .ant-input:focus,
+.siliconflow-page .ant-select-focused .ant-select-selector {
+  border-color: var(--color-primary, #FFD700);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+  background: var(--color-bg-container, #1A1A24);
+}
+
+/* 开关样式 */
+.siliconflow-page .ant-switch {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+}
+
+.siliconflow-page .ant-switch-checked {
+  background: var(--color-primary, #FFD700);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .siliconflow-page .chart-container-silicon,
+  .siliconflow-page .strategy-container-silicon,
+  .siliconflow-page .signals-container-silicon {
+    border-radius: var(--radius-lg-silicon, 12px);
+  }
+
+  .siliconflow-page .ant-card-body {
+    padding: var(--padding-card-sm, 1rem);
+  }
+
+  .siliconflow-page .ant-statistic-content {
+    font-size: var(--text-body-lg, 1.125rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .siliconflow-page .ant-row {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+  }
+
+  .siliconflow-page .ant-col {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+
+/* 性能优化: 减少不必要的过渡动画 */
+@media (prefers-reduced-motion: reduce) {
+  .siliconflow-page {
+    animation: none;
+  }
+
+  .siliconflow-page .ant-btn:hover,
+  .siliconflow-page .ant-statistic-content-value,
+  .siliconflow-page .ant-input,
+  .siliconflow-page .ant-select-selector {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .siliconflow-page .chart-container-silicon,
+  .siliconflow-page .strategy-container-silicon,
+  .siliconflow-page .signals-container-silicon {
+    border-width: 2px;
+  }
+
+  .siliconflow-page .ant-btn,
+  .siliconflow-page .ant-input,
+  .siliconflow-page .ant-select-selector {
+    border-width: 2px;
+  }
+
+  .siliconflow-page th,
+  .siliconflow-page td {
+    border-bottom-width: 2px;
+  }
+}

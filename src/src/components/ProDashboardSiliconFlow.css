@@ -1,0 +1,347 @@
+/* ProDashboardSiliconFlow.css - SiliconFlow布局系统的样式 */
+
+/* 主容器 */
+.dashboard-silicon {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-bg-base, #0A0A0F);
+  color: var(--color-text-base, #F3F4F6);
+}
+
+/* 主要布局 - 侧边栏 + 内容区域 */
+.main-layout-silicon {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - var(--topbar-height, 64px) - 40px);
+  position: relative;
+}
+
+/* 侧边栏样式 */
+.sidebar-silicon {
+  width: var(--sidebar-width, 240px);
+  background: var(--color-bg-container, #1A1A24);
+  border-right: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: var(--topbar-height, 64px);
+  height: calc(100vh - var(--topbar-height, 64px));
+  overflow-y: auto;
+  z-index: 900;
+  transition: width 0.3s ease;
+}
+
+.sidebar-header {
+  padding: var(--padding-card, 1.5rem) var(--padding-card, 1.5rem) 0;
+  margin-bottom: var(--margin-block, 2rem);
+}
+
+.brand-logo-silicon {
+  display: flex;
+  align-items: center;
+  gap: var(--proximity-normal, 0.5rem);
+  margin-bottom: var(--margin-element-sm, 0.75rem);
+}
+
+.brand-text-silicon {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-text-silicon .brand-title {
+  font-size: var(--text-h5-silicon, 1.25rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-text-base, #F3F4F6);
+  margin: 0;
+  line-height: var(--leading-heading, 1.2);
+}
+
+.brand-text-silicon .brand-subtitle {
+  font-size: var(--text-body-sm, 0.875rem);
+  color: var(--color-text-secondary, #9CA3AF);
+  margin: 0;
+}
+
+/* 侧边栏导航 */
+.sidebar-nav {
+  flex: 1;
+  padding: 0 var(--padding-card-sm, 1rem);
+}
+
+.sidebar-nav .nav-item {
+  position: relative;
+  margin-bottom: var(--spacing-hierarchical-1, 0.25rem);
+  height: var(--nav-item-height, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 0 var(--nav-item-padding-horizontal, 1rem);
+  border-radius: var(--radius-silicon, 8px);
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary, #9CA3AF);
+  transition: all var(--duration-fast, 150ms) ease;
+}
+
+.sidebar-nav .nav-item:hover {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+  color: var(--color-text-base, #F3F4F6);
+}
+
+.sidebar-nav .nav-item.active {
+  background: var(--color-primary, #FFD700);
+  color: var(--color-text-base, #F3F4F6);
+  box-shadow: var(--shadow-sm-silicon, 0 2px 4px 0 rgba(0, 0, 0, 0.08));
+}
+
+.sidebar-nav .nav-item.active:hover {
+  background: var(--color-primary-hover, #FFC107);
+}
+
+.sidebar-nav .nav-label {
+  flex: 1;
+  margin-left: var(--proximity-normal, 0.5rem);
+  font-size: var(--text-body-silicon, 1rem);
+  font-weight: var(--font-weight-medium-silicon, 500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-nav .nav-badge {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* 侧边栏底部 */
+.sidebar-footer {
+  padding: var(--padding-card, 1.5rem);
+  border-top: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  margin-top: auto;
+}
+
+.sidebar-footer .quick-actions {
+  width: 100%;
+}
+
+/* 内容区域 */
+.content-area-silicon {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--padding-section, 3rem);
+  background: var(--color-bg-base, #0A0A0F);
+  overflow-y: auto;
+}
+
+/* 性能指标网格 */
+.performance-grid-silicon {
+  margin-bottom: var(--margin-block, 2rem);
+}
+
+.performance-grid-silicon .perf-card {
+  background: var(--color-bg-container, #1A1A24);
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  border-radius: var(--radius-lg-silicon, 16px);
+  padding: var(--padding-card-sm, 1rem);
+  height: 100%;
+  transition: transform var(--duration-normal, 300ms) ease,
+              box-shadow var(--duration-normal, 300ms) ease;
+}
+
+.performance-grid-silicon .perf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg-silicon, 0 10px 20px 0 rgba(0, 0, 0, 0.15));
+}
+
+.performance-grid-silicon .perf-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+  border-radius: var(--radius-silicon, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--margin-element-sm, 0.75rem);
+  font-size: 1.25rem;
+  color: var(--color-primary, #FFD700);
+}
+
+.performance-grid-silicon .ant-statistic-title {
+  color: var(--color-text-secondary, #9CA3AF);
+  font-size: var(--text-body-sm, 0.875rem);
+  font-weight: var(--font-weight-medium-silicon, 500);
+  margin-bottom: var(--whitespace-micro, 0.125rem);
+}
+
+.performance-grid-silicon .ant-statistic-content {
+  font-weight: var(--font-weight-bold, 700);
+  font-size: var(--text-h5-silicon, 1.25rem);
+}
+
+/* 页面内容区域 */
+.page-content-silicon {
+  flex: 1;
+  background: var(--color-bg-container, #1A1A24);
+  border-radius: var(--radius-xl-silicon, 16px);
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  padding: var(--padding-block, 1.5rem);
+  margin-bottom: var(--margin-block, 2rem);
+  min-height: 400px;
+  position: relative;
+}
+
+/* 底部栏 */
+.footer-silicon {
+  padding: var(--padding-element, 1rem) 0;
+  border-top: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  background: var(--color-bg-container, #1A1A24);
+  border-radius: var(--radius-lg-silicon, 12px);
+  margin-top: auto;
+}
+
+.footer-silicon .system-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: var(--text-body-xs, 0.75rem);
+  color: var(--color-text-secondary, #9CA3AF);
+  gap: var(--proximity-normal, 0.5rem);
+}
+
+.footer-silicon .separator {
+  color: var(--color-border, rgba(255, 215, 0, 0.1));
+}
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-silicon .version-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: var(--text-body-xs, 0.75rem);
+  color: var(--color-text-secondary, #9CA3AF);
+}
+
+.footer-silicon .version {
+  font-weight: var(--font-weight-medium-silicon, 500);
+  color: var(--color-primary, #FFD700);
+}
+
+.footer-silicon .last-tick {
+  color: var(--color-text-secondary, #9CA3AF);
+}
+
+/* 系统状态栏 */
+.system-status-silicon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--proximity-normal, 0.5rem);
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+  padding: var(--whitespace-micro, 0.125rem) var(--whitespace-medium, 0.5rem);
+  border-radius: var(--radius-pill, 9999px);
+  font-size: var(--text-body-xs, 0.75rem);
+}
+
+/* 加载状态 */
+.dashboard-loading-pro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--color-bg-base, #0A0A0F);
+}
+
+.loading-spinner-pro {
+  padding: 2rem;
+  border-radius: 50%;
+  background: var(--color-bg-container, #1A1A24);
+  box-shadow: var(--shadow-lg-silicon, 0 10px 20px 0 rgba(0, 0, 0, 0.15));
+  margin-bottom: var(--margin-block, 2rem);
+}
+
+.loading-text-pro {
+  font-size: var(--text-body-lg, 1.125rem);
+  color: var(--color-text-base, #F3F4F6);
+  font-weight: var(--font-weight-medium-silicon, 500);
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .sidebar-silicon {
+    width: var(--sidebar-width-md, 200px);
+  }
+
+  .content-area-silicon {
+    padding: var(--padding-block, 1.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-layout-silicon {
+    flex-direction: column;
+  }
+
+  .sidebar-silicon {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sidebar-nav .nav-item {
+    flex: 1 1 120px;
+    margin: var(--whitespace-micro, 0.125rem);
+  }
+
+  .performance-grid-silicon .perf-card {
+    margin-bottom: var(--margin-element, 1rem);
+  }
+}
+
+/* 性能优化: 减少不必要的重新渲染 */
+@media (prefers-reduced-motion: reduce) {
+  .performance-grid-silicon .perf-card,
+  .sidebar-nav .nav-item,
+  .ant-btn {
+    transition: none !important;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .sidebar-silicon,
+  .topbar-silicon,
+  .footer-silicon,
+  .performance-grid-silicon {
+    display: none !important;
+  }
+
+  .content-area-silicon {
+    padding: 0 !important;
+  }
+
+  .page-content-silicon {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}

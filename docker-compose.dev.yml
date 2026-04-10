@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  # PostgreSQL + TimescaleDB（主数据库）
+  postgres:
+    image: timescale/timescaledb:latest-pg14
+    container_name: tick-gold-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tickgold
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d tickgold"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tick-gold-network
+
+  # Redis缓存和消息队列
+  redis:
+    image: redis:7-alpine
+    container_name: tick-gold-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass RedisPassword123
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tick-gold-network
+
+  # pgAdmin（数据库管理界面）
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: tick-gold-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@tickgold.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - tick-gold-network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+networks:
+  tick-gold-network:
+    driver: bridge
+
+# 使用说明：
+# 启动基础服务：docker-compose -f docker-compose.dev.yml up -d postgres redis
+# 启动所有服务：docker-compose -f docker-compose.dev.yml up -d
+# 停止服务：docker-compose -f docker-compose.dev.yml down
+# 查看日志：docker-compose -f docker-compose.dev.yml logs -f

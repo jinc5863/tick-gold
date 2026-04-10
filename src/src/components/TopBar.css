@@ -1,0 +1,457 @@
+/* TopBar.css - SiliconFlow顶部导航栏样式 */
+
+/* 顶部导航栏容器 */
+.topbar-silicon {
+  background: var(--color-bg-container, #1A1A24);
+  border-bottom: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  height: var(--topbar-height, 64px);
+  padding: 0 var(--padding-section, 3rem);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm-silicon, 0 2px 4px 0 rgba(0, 0, 0, 0.08));
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式内边距调整 */
+@media (max-width: 1024px) {
+  .topbar-silicon {
+    padding: 0 var(--padding-block, 1.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar-silicon {
+    padding: 0 var(--padding-element, 1rem);
+  }
+}
+
+/* 面包屑导航容器 */
+.breadcrumb-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-hierarchical-1, 0.25rem);
+}
+
+/* 面包屑样式 */
+.ant-breadcrumb {
+  line-height: 1;
+}
+
+.ant-breadcrumb li:last-child .ant-breadcrumb-link {
+  color: var(--color-text-base, #F3F4F6);
+}
+
+.ant-breadcrumb-item-separator {
+  color: var(--color-text-secondary, #9CA3AF);
+  margin: 0 var(--margin-element-xs, 0.5rem);
+}
+
+.breadcrumb-current {
+  color: var(--color-primary, #FFD700);
+  font-weight: var(--font-weight-semibold, 600);
+  font-size: var(--text-body-sm, 0.875rem);
+}
+
+/* 面包屑按钮样式 */
+.breadcrumb-container .ant-btn {
+  height: auto;
+  padding: 0;
+  font-size: var(--text-body-sm, 0.875rem);
+  color: var(--color-text-secondary, #9CA3AF);
+  background: transparent;
+  border: none;
+}
+
+.breadcrumb-container .ant-btn:hover {
+  color: var(--color-text-base, #F3F4F6);
+  background: transparent;
+}
+
+/* 页面标题区域 */
+.page-title-area {
+  display: flex;
+  align-items: baseline;
+  gap: var(--proximity-normal, 0.5rem);
+}
+
+.page-title {
+  margin: 0 !important;
+  color: var(--color-text-base, #F3F4F6);
+  font-weight: var(--font-weight-bold, 700);
+  font-size: var(--text-h5-silicon, 1.25rem);
+  line-height: var(--leading-heading, 1.2);
+}
+
+.page-description {
+  display: flex;
+  align-items: center;
+  gap: var(--proximity-normal, 0.5rem);
+  font-size: var(--text-body-xs, 0.75rem);
+}
+
+.perf-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-hierarchical-1, 0.25rem);
+  color: var(--color-text-secondary, #9CA3AF);
+}
+
+/* 搜索栏区域 */
+.topbar-search {
+  flex: 0 1 320px;
+  min-width: 200px;
+}
+
+.search-bar-silicon {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-silicon .ant-input {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  border-radius: var(--radius-pill, 9999px);
+  color: var(--color-text-base, #F3F4F6);
+  height: var(--search-height, 44px);
+  padding: 0 var(--padding-element, 1rem);
+  font-size: var(--text-body-silicon, 1rem);
+  transition: all var(--duration-fast, 150ms) ease;
+}
+
+.search-input-silicon .ant-input:hover {
+  border-color: var(--color-primary, #FFD700);
+  background: var(--color-fill-secondary, rgba(255, 255, 255, 0.08));
+}
+
+.search-input-silicon .ant-input:focus {
+  border-color: var(--color-primary, #FFD700);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+  background: var(--color-bg-container, #1A1A24);
+}
+
+.search-input-silicon .ant-input::placeholder {
+  color: var(--color-text-secondary, #9CA3AF);
+}
+
+.search-input-silicon .ant-btn {
+  height: 100%;
+  border-radius: 0 var(--radius-pill, 9999px) var(--radius-pill, 9999px) 0;
+  border: none;
+  background: var(--color-primary, #FFD700);
+  color: var(--color-bg-base, #0A0A0F);
+}
+
+.search-input-silicon .ant-btn:hover {
+  background: var(--color-primary-hover, #FFC107);
+  color: var(--color-bg-base, #0A0A0F);
+}
+
+/* 搜索提示 */
+.search-hints {
+  display: flex;
+  gap: var(--whitespace-micro, 0.125rem);
+  margin-top: var(--whitespace-micro, 0.125rem);
+  padding: 0 var(--padding-element, 1rem);
+  overflow-x: auto;
+}
+
+.search-hints::-webkit-scrollbar {
+  height: 2px;
+}
+
+.search-hints::-webkit-scrollbar-track {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+}
+
+.search-hints::-webkit-scrollbar-thumb {
+  background: var(--color-primary, #FFD700);
+}
+
+.hint-item {
+  font-size: var(--text-body-2xs, 0.625rem);
+  color: var(--color-text-secondary, #9CA3AF);
+  padding: var(--whitespace-micro, 0.125rem) var(--whitespace-small, 0.25rem);
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+  border-radius: var(--radius-pill, 9999px);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--duration-fast, 150ms) ease;
+}
+
+.hint-item:hover {
+  background: var(--color-fill-secondary, rgba(255, 255, 255, 0.08));
+  color: var(--color-text-base, #F3F4F6);
+}
+
+/* 快速操作工具栏 */
+.quick-actions-silicon {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-hierarchical-2, 0.5rem);
+}
+
+.quick-action-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-silicon, 8px);
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  color: var(--color-text-base, #F3F4F6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast, 150ms) ease;
+}
+
+.quick-action-btn:hover {
+  background: var(--color-fill-secondary, rgba(255, 255, 255, 0.08));
+  border-color: var(--color-primary, #FFD700);
+  color: var(--color-primary, #FFD700);
+}
+
+.quick-action-btn:active {
+  transform: scale(0.95);
+}
+
+/* 顶部栏操作按钮 */
+.topbar-action-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-silicon, 8px);
+  background: transparent;
+  border: none;
+  color: var(--color-text-base, #F3F4F6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast, 150ms) ease;
+}
+
+.topbar-action-btn:hover {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+  color: var(--color-primary, #FFD700);
+}
+
+.topbar-action-btn.active {
+  background: var(--color-primary, #FFD700);
+  color: var(--color-bg-base, #0A0A0F);
+}
+
+/* 通知下拉菜单样式 */
+.notification-dropdown .ant-dropdown-menu {
+  width: 360px;
+  max-height: 480px;
+  overflow-y: auto;
+  background: var(--color-bg-container, #1A1A24);
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  border-radius: var(--radius-lg-silicon, 16px);
+  padding: var(--padding-element-sm, 0.75rem) 0;
+  box-shadow: var(--shadow-lg-silicon, 0 10px 20px 0 rgba(0, 0, 0, 0.15));
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--padding-element-sm, 0.75rem);
+  margin-bottom: var(--margin-element-sm, 0.75rem);
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--proximity-normal, 0.5rem);
+  padding: var(--padding-element-sm, 0.75rem);
+  border-bottom: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  transition: background var(--duration-fast, 150ms) ease;
+}
+
+.notification-item:hover {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-item .ant-typography {
+  display: block;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.notification-item .ant-typography.ant-typography-secondary {
+  font-size: var(--text-body-xs, 0.75rem);
+  margin-top: var(--whitespace-micro, 0.125rem);
+}
+
+.notification-time {
+  font-size: var(--text-body-xs, 0.75rem);
+  color: var(--color-text-secondary, #9CA3AF);
+  white-space: nowrap;
+  margin-top: var(--whitespace-micro, 0.125rem);
+}
+
+/* 系统下拉菜单 */
+.system-dropdown .ant-dropdown-menu {
+  width: 280px;
+  background: var(--color-bg-container, #1A1A24);
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  border-radius: var(--radius-lg-silicon, 16px);
+  padding: var(--padding-element-sm, 0.75rem) 0;
+  box-shadow: var(--shadow-lg-silicon, 0 10px 20px 0 rgba(0, 0, 0, 0.15));
+}
+
+.system-status-mini {
+  padding: var(--padding-element-sm, 0.75rem) var(--padding-element, 1rem);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--proximity-normal, 0.5rem);
+  margin-bottom: var(--margin-element-xs, 0.5rem);
+  font-size: var(--text-body-sm, 0.875rem);
+  color: var(--color-text-base, #F3F4F6);
+}
+
+.performance-metrics-mini {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-hierarchical-1, 0.25rem);
+  font-size: var(--text-body-xs, 0.75rem);
+}
+
+.performance-metrics-mini .ant-typography {
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* 用户下拉菜单 */
+.user-dropdown .ant-dropdown-menu {
+  width: 240px;
+  background: var(--color-bg-container, #1A1A24);
+  border: 1px solid var(--color-border, rgba(255, 215, 0, 0.1));
+  border-radius: var(--radius-lg-silicon, 16px);
+  padding: var(--padding-element-sm, 0.75rem) 0;
+  box-shadow: var(--shadow-lg-silicon, 0 10px 20px 0 rgba(0, 0, 0, 0.15));
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--proximity-normal, 0.5rem);
+  padding: var(--whitespace-micro, 0.125rem);
+  cursor: pointer;
+  transition: background var(--duration-fast, 150ms) ease;
+  border-radius: var(--radius-pill, 9999px);
+}
+
+.user-profile:hover {
+  background: var(--color-fill, rgba(255, 255, 255, 0.12));
+}
+
+.user-avatar {
+  border: 2px solid var(--color-primary, #FFD700);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.user-name {
+  font-size: var(--text-body-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-base, #F3F4F6);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-status {
+  font-size: var(--text-body-xs, 0.75rem);
+  line-height: 1.2;
+}
+
+/* 移动端菜单按钮 */
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .topbar-left .page-title-area {
+    display: none;
+  }
+
+  .topbar-search {
+    flex: 0 1 200px;
+    min-width: 120px;
+  }
+
+  .search-hints {
+    display: none;
+  }
+
+  .quick-actions-silicon {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .user-profile {
+    padding: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar-search {
+    display: none;
+  }
+
+  .notification-dropdown .ant-dropdown-menu,
+  .system-dropdown .ant-dropdown-menu,
+  .user-dropdown .ant-dropdown-menu {
+    width: 320px;
+    max-height: 80vh;
+  }
+}
+
+/* 性能优化 */
+@media (prefers-reduced-motion: reduce) {
+  .topbar-action-btn,
+  .quick-action-btn,
+  .search-input-silicon .ant-input,
+  .notification-item,
+  .user-profile {
+    transition: none !important;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .topbar-silicon {
+    border-bottom-width: 2px;
+  }
+
+  .search-input-silicon .ant-input {
+    border-width: 2px;
+  }
+
+  .quick-action-btn,
+  .topbar-action-btn {
+    border-width: 2px;
+  }
+}

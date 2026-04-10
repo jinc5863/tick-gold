@@ -1,0 +1,330 @@
+/* SiliconFlow 侧边栏导航样式 */
+/* 基于 design-system-siliconflow.css 设计系统 */
+
+.sidebar-navigation {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--space-5);
+}
+
+/* 快速切换区域 */
+.nav-quick-section {
+  padding: 0 var(--space-4);
+}
+
+.nav-quick-section .section-title {
+  font-size: var(--text-silicon-body-xs);
+  font-weight: 600;
+  color: var(--text-descriptive);
+  letter-spacing: 1px;
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* 主要导航区域 */
+.nav-main-section {
+  flex: 1;
+  padding: 0 var(--space-4);
+  overflow-y: auto;
+}
+
+/* 性能监控区域 */
+.nav-metrics-section {
+  padding: 0 var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-4);
+}
+
+/* 部分标题样式 */
+.section-title {
+  font-size: var(--text-silicon-body-xs);
+  color: var(--text-descriptive);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.section-title::before {
+  content: '';
+  width: 8px;
+  height: 1px;
+  background-color: var(--gold-primary);
+  display: inline-block;
+  opacity: 0.6;
+}
+
+/* 菜单样式覆盖 */
+.main-nav-menu,
+.metrics-nav-menu {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.main-nav-menu .ant-menu-item,
+.main-nav-menu .ant-menu-submenu-title,
+.metrics-nav-menu .ant-menu-item {
+  height: 40px !important;
+  line-height: 40px !important;
+  margin: 0 !important;
+  border-radius: var(--radius-md) !important;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 var(--space-3) !important;
+}
+
+.main-nav-menu .ant-menu-item:hover,
+.main-nav-menu .ant-menu-submenu-title:hover,
+.metrics-nav-menu .ant-menu-item:hover {
+  background-color: var(--bg-hover) !important;
+  color: var(--text-high-contrast) !important;
+}
+
+.main-nav-menu .ant-menu-item-selected,
+.metrics-nav-menu .ant-menu-item-selected {
+  background-color: var(--gold-primary) !important;
+  color: var(--text-high-contrast) !important;
+  font-weight: 600 !important;
+}
+
+.main-nav-menu .ant-menu-item-selected .ant-menu-item-icon,
+.metrics-nav-menu .ant-menu-item-selected .ant-menu-item-icon {
+  color: var(--text-high-contrast) !important;
+}
+
+.main-nav-menu .ant-menu-item-icon,
+.main-nav-menu .ant-menu-submenu-title .ant-menu-item-icon,
+.metrics-nav-menu .ant-menu-item-icon {
+  color: var(--text-descriptive) !important;
+  font-size: 16px !important;
+  margin-right: var(--space-3) !important;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.main-nav-menu .ant-menu-submenu-title {
+  font-weight: 600 !important;
+  color: var(--text-high-contrast) !important;
+  font-size: var(--text-silicon-body-sm) !important;
+}
+
+.main-nav-menu .ant-menu-submenu-arrow {
+  color: var(--text-descriptive) !important;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.main-nav-menu .ant-menu-submenu:hover .ant-menu-submenu-arrow {
+  color: var(--gold-primary) !important;
+}
+
+/* 子菜单样式 */
+.main-nav-menu .ant-menu-submenu {
+  margin-bottom: var(--space-1) !important;
+}
+
+.main-nav-menu .ant-menu-submenu .ant-menu-item {
+  padding-left: 44px !important;
+  font-size: var(--text-silicon-body-sm) !important;
+  color: var(--text-secondary) !important;
+  background-color: transparent !important;
+}
+
+.main-nav-menu .ant-menu-submenu .ant-menu-item:hover {
+  background-color: var(--bg-subtle) !important;
+  color: var(--text-high-contrast) !important;
+}
+
+/* 菜单项内容样式 */
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.menu-item-label {
+  flex: 1;
+  white-space: nowrap;
+}
+
+/* 徽章样式 */
+.ant-badge {
+  font-family: var(--font-ui);
+}
+
+.ant-badge-count,
+.ant-badge-dot {
+  background: linear-gradient(145deg, var(--gold-accent), var(--gold-secondary)) !important;
+  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.2) !important;
+}
+
+.ant-badge-status-processing {
+  background-color: var(--gold-primary) !important;
+}
+
+.ant-badge-status-success {
+  background-color: var(--status-success) !important;
+}
+
+/* 性能监控项样式 */
+.metrics-nav-menu .ant-menu-item {
+  font-family: var(--font-mono);
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.metric-label {
+  font-size: var(--text-silicon-body-xs);
+  color: var(--text-descriptive);
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: var(--text-silicon-body-xs);
+  color: var(--gold-primary);
+  font-weight: 600;
+  background: var(--gold-bg-subtle);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+}
+
+/* 系统状态简览 */
+.nav-status-summary {
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin: var(--space-4);
+  border: 1px solid var(--border-subtle);
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.status-item:last-child {
+  margin-bottom: 0;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+
+.status-indicator.active {
+  background-color: var(--gold-primary);
+  animation: pulse-active 2s ease-in-out infinite;
+}
+
+.status-indicator.healthy {
+  background-color: var(--status-success);
+  animation: pulse-success 2s ease-in-out infinite;
+}
+
+.status-text {
+  font-size: var(--text-silicon-body-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* 工具提示样式 */
+.ant-tooltip {
+  font-family: var(--font-ui);
+}
+
+.ant-tooltip-inner {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-high-contrast) !important;
+  border: 1px solid var(--border-secondary) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-radius: var(--radius-md) !important;
+  font-size: var(--text-silicon-body-sm) !important;
+}
+
+.ant-tooltip-arrow-content {
+  background-color: var(--bg-surface) !important;
+}
+
+/* 动画效果 */
+@keyframes pulse-active {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0);
+  }
+}
+
+@keyframes pulse-success {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .sidebar-navigation {
+    padding: var(--space-2);
+  }
+
+  .nav-quick-section,
+  .nav-main-section,
+  .nav-metrics-section {
+    padding: 0 var(--space-2);
+  }
+
+  .nav-status-summary {
+    margin: var(--space-2);
+    padding: var(--space-3);
+  }
+
+  .main-nav-menu .ant-menu-item,
+  .main-nav-menu .ant-menu-submenu-title {
+    height: 36px !important;
+    line-height: 36px !important;
+  }
+}
+
+/* 滚动条优化 */
+.nav-main-section::-webkit-scrollbar {
+  width: 4px;
+}
+
+.nav-main-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.nav-main-section::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: var(--radius-full);
+}
+
+.nav-main-section::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
