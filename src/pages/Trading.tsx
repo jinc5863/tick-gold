@@ -259,9 +259,9 @@ const Trading: React.FC = () => {
         {/* Connection Status */}
         <Card
           title={<span style={{ color: '#FAFAF9' }}>交易平台连接状态</span>}
-          bordered={false}
+          variant="borderless"
           style={{ background: '#1C1917', border: '1px solid #44403C', marginBottom: '24px' }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
           extra={
             <Space>
               <Badge status={connectionStatus.every(c => c.status === 'connected') ? 'success' : 'error'} />
@@ -283,7 +283,7 @@ const Trading: React.FC = () => {
         {/* PnL Display */}
         <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
           <Col xs={24} sm={8}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>今日盈亏</span>}
                 value={pnlData.today}
@@ -294,7 +294,7 @@ const Trading: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={8}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>本周盈亏</span>}
                 value={pnlData.thisWeek}
@@ -305,7 +305,7 @@ const Trading: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={8}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>本月盈亏</span>}
                 value={pnlData.thisMonth}
@@ -322,9 +322,9 @@ const Trading: React.FC = () => {
           <Col xs={24} lg={16}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>当前持仓</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={
                 <Space>
                   <Button icon={<ReloadOutlined />} onClick={handleRefreshPositions}>
@@ -365,9 +365,9 @@ const Trading: React.FC = () => {
             {/* PnL Chart */}
             <Card
               title={<span style={{ color: '#FAFAF9' }}>盈亏曲线</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C', marginTop: '16px' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ height: '200px' }}>
                 <ResponsiveContainer width="100%" height="100%">
@@ -402,9 +402,9 @@ const Trading: React.FC = () => {
                   风险警告
                 </span>
               }
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C', marginBottom: '16px' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               {riskWarnings.map((warning) => (
                 <Alert
@@ -430,9 +430,9 @@ const Trading: React.FC = () => {
             {/* Manual Order Form */}
             <Card
               title={<span style={{ color: '#FAFAF9' }}>手动下单</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Form form={form} layout="vertical"
                 onValuesChange={(_changedValues, allValues) => {
@@ -459,13 +459,15 @@ const Trading: React.FC = () => {
                   </Select>
                 </Form.Item>
                 <Form.Item label={<span style={{ color: '#A8A29E' }}>交易数量</span>} name="quantity">
-                  <InputNumber
-                    min={0.1}
-                    max={10}
-                    step={0.1}
-                    style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
-                    addonAfter="手"
-                  />
+                  <Space.Compact>
+                    <InputNumber
+                      min={0.1}
+                      max={10}
+                      step={0.1}
+                      style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
+                    />
+                    <span style={{ background: '#0A0A0F', border: '1px solid #44403C', padding: '0 11px', color: '#A8A29E' }}>手</span>
+                  </Space.Compact>
                 </Form.Item>
                 <Form.Item label={<span style={{ color: '#A8A29E' }}>执行价格</span>}>
                   <div style={{ color: '#CA8A04', fontSize: '18px', fontWeight: 'bold' }}>
