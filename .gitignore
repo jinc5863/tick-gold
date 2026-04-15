@@ -5,6 +5,11 @@
 /config/*.secret               # 任何秘密文件
 /config/app_config.local.json  # 本地配置覆盖
 
+# 根目录 .env 文件
+.env
+.env.local
+.env.*.local
+
 
 # ========== Python 相关 ==========
 # Python虚拟环境

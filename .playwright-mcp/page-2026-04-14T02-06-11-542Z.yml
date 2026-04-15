@@ -1,0 +1,500 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e8]:
+        - img "api" [ref=e10]:
+          - img [ref=e11]
+        - generic [ref=e13]:
+          - heading "Tick Gold" [level=1] [ref=e14]
+          - generic [ref=e15]: PRO MAX ULTRA
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: 核心交易
+          - menu [ref=e20]:
+            - menuitem "dashboard 面板概览 New" [ref=e21] [cursor=pointer]:
+              - img "dashboard" [ref=e22]:
+                - img [ref=e23]
+              - generic [ref=e26]:
+                - generic [ref=e27]: 面板概览
+                - superscript [ref=e29]: New
+            - menuitem "line-chart 实时图表" [ref=e30] [cursor=pointer]:
+              - img "line-chart" [ref=e31]:
+                - img [ref=e32]
+              - generic [ref=e36]: 实时图表
+            - menuitem "api 吞吐量" [ref=e37] [cursor=pointer]:
+              - img "api" [ref=e38]:
+                - img [ref=e39]
+              - generic [ref=e43]: 吞吐量
+        - generic [ref=e44]:
+          - generic [ref=e45]: 专业工具
+          - menu [ref=e46]:
+            - menuitem "line-chart 交易监控" [expanded] [ref=e47] [cursor=pointer]:
+              - img "line-chart" [ref=e48]:
+                - img [ref=e49]
+              - generic [ref=e51]: 交易监控
+            - menu [ref=e52]:
+              - menuitem "dashboard 面板概览 New" [ref=e53] [cursor=pointer]:
+                - img "dashboard" [ref=e54]:
+                  - img [ref=e55]
+                - generic [ref=e58]:
+                  - generic [ref=e59]: 面板概览
+                  - superscript [ref=e61]: New
+              - menuitem "line-chart 实时图表" [ref=e62] [cursor=pointer]:
+                - img "line-chart" [ref=e63]:
+                  - img [ref=e64]
+                - generic [ref=e68]: 实时图表
+              - menuitem "thunderbolt 性能指标" [ref=e69] [cursor=pointer]:
+                - img "thunderbolt" [ref=e70]:
+                  - img [ref=e71]
+                - generic [ref=e75]: 性能指标
+            - menuitem "database 数据处理" [ref=e76] [cursor=pointer]:
+              - img "database" [ref=e77]:
+                - img [ref=e78]
+              - generic [ref=e80]: 数据处理
+            - menuitem "code 策略管理" [ref=e81] [cursor=pointer]:
+              - img "code" [ref=e82]:
+                - img [ref=e83]
+              - generic [ref=e85]: 策略管理
+            - menuitem "bar-chart 分析引擎" [ref=e86] [cursor=pointer]:
+              - img "bar-chart" [ref=e87]:
+                - img [ref=e88]
+              - generic [ref=e90]: 分析引擎
+            - menuitem "setting 系统配置" [ref=e91] [cursor=pointer]:
+              - img "setting" [ref=e92]:
+                - img [ref=e93]
+              - generic [ref=e95]: 系统配置
+        - generic [ref=e96]:
+          - generic [ref=e97]: 实时性能
+          - menu [ref=e98]:
+            - menuitem "api 吞吐量 21k+" [ref=e99] [cursor=pointer]:
+              - img "api" [ref=e100]:
+                - img [ref=e101]
+              - generic [ref=e104]:
+                - generic [ref=e105]: 吞吐量
+                - generic [ref=e106]: 21k+
+            - menuitem "thunderbolt 延迟 <50ms" [ref=e107] [cursor=pointer]:
+              - img "thunderbolt" [ref=e108]:
+                - img [ref=e109]
+              - generic [ref=e112]:
+                - generic [ref=e113]: 延迟
+                - generic [ref=e114]: <50ms
+            - menuitem "cloud 内存 85.5%" [ref=e115] [cursor=pointer]:
+              - img "cloud" [ref=e116]:
+                - img [ref=e117]
+              - generic [ref=e120]:
+                - generic [ref=e121]: 内存
+                - generic [ref=e122]: 85.5%
+        - generic [ref=e123]:
+          - generic [ref=e126]: "数据流: 21,340+ tps"
+          - generic [ref=e129]: "系统: 运行正常"
+      - generic [ref=e130]:
+        - generic [ref=e133]: "实时数据流: 21,340+ ticks/sec"
+        - generic [ref=e134]:
+          - generic [ref=e135]: ULTRA
+          - generic [ref=e136]: 性能认证
+  - generic [ref=e137]:
+    - banner [ref=e138]:
+      - generic [ref=e139]:
+        - button "menu-fold" [ref=e140] [cursor=pointer]:
+          - img "menu-fold" [ref=e142]:
+            - img [ref=e143]
+        - generic [ref=e146]:
+          - generic [ref=e148]:
+            - navigation [ref=e149]:
+              - list [ref=e150]:
+                - listitem [ref=e151]:
+                  - link "首页" [ref=e152] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e153]: /
+                - listitem [ref=e154]:
+                  - link "交易系统" [ref=e155] [cursor=pointer]:
+                    - /url: "#trading"
+                - listitem [ref=e156]: /
+                - listitem [ref=e157]:
+                  - link "面板概览" [ref=e158] [cursor=pointer]:
+                    - /url: "#"
+            - generic [ref=e159]:
+              - heading "交易面板概览" [level=1] [ref=e160]
+              - generic [ref=e161]:
+                - generic [ref=e162]: XAUUSD
+                - generic [ref=e163]: "|"
+                - generic [ref=e164]: 实时监控
+                - generic [ref=e165]: "|"
+                - generic [ref=e166]: 21,340+ tps
+                - generic [ref=e167]: ULTRA
+          - generic [ref=e170]:
+            - generic [ref=e171]:
+              - img "search" [ref=e173]:
+                - img [ref=e174]
+              - searchbox "搜索策略、交易对、用户..." [ref=e176]
+            - button "search" [ref=e179] [cursor=pointer]:
+              - img "search" [ref=e181]:
+                - img [ref=e182]
+          - generic [ref=e185]:
+            - button "reload" [ref=e187] [cursor=pointer]:
+              - img "reload" [ref=e189]:
+                - img [ref=e190]
+            - button "plus 快速操作" [ref=e193] [cursor=pointer]:
+              - img "plus" [ref=e195]:
+                - img [ref=e196]
+              - generic [ref=e199]: 快速操作
+            - generic [ref=e201]:
+              - button "bell" [ref=e202] [cursor=pointer]:
+                - img "bell" [ref=e204]:
+                  - img [ref=e205]
+              - superscript [ref=e207] [cursor=pointer]:
+                - generic [ref=e209]: "3"
+            - generic [ref=e211]:
+              - generic [ref=e212]:
+                - img "thunderbolt" [ref=e213]:
+                  - img [ref=e214]
+                - text: ULTRA
+              - generic [ref=e216]: 21,340+ tps
+            - button "question-circle" [ref=e218] [cursor=pointer]:
+              - img "question-circle" [ref=e220]:
+                - img [ref=e221]
+            - button "setting" [ref=e225] [cursor=pointer]:
+              - img "setting" [ref=e227]:
+                - img [ref=e228]
+            - generic [ref=e231] [cursor=pointer]:
+              - generic [ref=e233]: TG
+              - generic [ref=e234]:
+                - generic [ref=e235]: Tick Gold
+                - generic [ref=e236]: 管理员
+    - main [ref=e237]:
+      - generic [ref=e241]:
+        - generic [ref=e244]:
+          - heading "🧹 数据清洗模块" [level=4] [ref=e246]
+          - generic [ref=e248]:
+            - generic [ref=e250]: US 时段
+            - generic [ref=e252]:
+              - img "line-chart" [ref=e253]:
+                - img [ref=e254]
+              - generic [ref=e256]: "波动率: 0.0230%"
+          - generic [ref=e258]:
+            - button "play-circle 启动清洗" [ref=e260] [cursor=pointer]:
+              - img "play-circle" [ref=e262]:
+                - img [ref=e263]
+              - generic [ref=e266]: 启动清洗
+            - button "reload 重置" [ref=e268] [cursor=pointer]:
+              - img "reload" [ref=e270]:
+                - img [ref=e271]
+              - generic [ref=e273]: 重置
+        - generic [ref=e274]:
+          - generic [ref=e276]:
+            - generic [ref=e278]:
+              - generic [ref=e279]:
+                - img "setting" [ref=e280]:
+                  - img [ref=e281]
+                - text: 配置面板
+              - switch [checked] [ref=e284] [cursor=pointer]
+            - generic [ref=e287]:
+              - generic [ref=e288]:
+                - generic [ref=e289]: 清洗策略预设
+                - generic [ref=e290] [cursor=pointer]:
+                  - generic [ref=e292]:
+                    - combobox [ref=e294]
+                    - generic [ref=e295]:
+                      - generic [ref=e296]: 平衡
+                      - text: 常规交易推荐
+                  - generic:
+                    - img:
+                      - img
+                - generic [ref=e297]: 平衡数据保留与质量，适用于常规交易
+              - separator [ref=e298]
+              - generic [ref=e299]:
+                - generic [ref=e300]:
+                  - button "expanded 价格验证" [expanded] [ref=e301] [cursor=pointer]:
+                    - img "expanded" [ref=e303]:
+                      - img [ref=e304]
+                    - generic [ref=e306]: 价格验证
+                  - generic [ref=e309]:
+                    - generic [ref=e311]:
+                      - generic [ref=e312]: "最大价格变动百分比: 0.5%"
+                      - slider [ref=e316] [cursor=pointer]
+                    - generic [ref=e318]:
+                      - generic [ref=e319]: "价差标准差倍数: 3"
+                      - slider [ref=e323] [cursor=pointer]
+                    - generic [ref=e325]:
+                      - generic [ref=e326]:
+                        - text: 最小价格
+                        - generic [ref=e327]:
+                          - generic:
+                            - button "Increase Value" [ref=e328] [cursor=pointer]:
+                              - img "up"
+                            - button "Decrease Value" [ref=e330] [cursor=pointer]:
+                              - img "down"
+                          - spinbutton [ref=e333]: "1000"
+                      - generic [ref=e334]:
+                        - text: 最大价格
+                        - generic [ref=e335]:
+                          - generic:
+                            - button "Increase Value" [ref=e336] [cursor=pointer]:
+                              - img "up"
+                            - button "Decrease Value" [ref=e338] [cursor=pointer]:
+                              - img "down"
+                          - spinbutton [ref=e341]: "3000"
+                - generic [ref=e342]:
+                  - button "expanded 时间验证" [expanded] [ref=e343] [cursor=pointer]:
+                    - img "expanded" [ref=e345]:
+                      - img [ref=e346]
+                    - generic [ref=e348]: 时间验证
+                  - generic [ref=e351]:
+                    - generic [ref=e353]:
+                      - generic [ref=e354]: "最大时间间隔: 500ms"
+                      - slider [ref=e358] [cursor=pointer]
+                    - generic [ref=e360]:
+                      - generic [ref=e361]: "合成填充间隔: 100ms"
+                      - slider [ref=e365] [cursor=pointer]
+                    - switch "启用合成填充 禁用合成填充" [checked] [ref=e367] [cursor=pointer]:
+                      - generic [ref=e369]:
+                        - generic: 启用合成填充
+                        - generic: 禁用合成填充
+                - generic [ref=e370]:
+                  - button "expanded 成交量验证" [expanded] [ref=e371] [cursor=pointer]:
+                    - img "expanded" [ref=e373]:
+                      - img [ref=e374]
+                    - generic [ref=e376]: 成交量验证
+                  - generic [ref=e379]:
+                    - generic [ref=e381]:
+                      - generic [ref=e382]: "最小流动性成交量: 50"
+                      - slider [ref=e386] [cursor=pointer]
+                    - generic [ref=e388]:
+                      - generic [ref=e389]: "成交量标准差倍数: 5"
+                      - slider [ref=e393] [cursor=pointer]
+          - generic [ref=e394]:
+            - generic [ref=e397]:
+              - tablist [ref=e398]:
+                - generic [ref=e400]:
+                  - tab "清洗结果预览" [selected] [ref=e402] [cursor=pointer]
+                  - tab "Flag 详情 6" [ref=e404] [cursor=pointer]:
+                    - generic [ref=e405]:
+                      - text: Flag 详情
+                      - superscript [ref=e407]:
+                        - generic [ref=e409]: "6"
+              - tabpanel "清洗结果预览" [ref=e412]:
+                - generic [ref=e415]:
+                  - generic [ref=e417]:
+                    - table [ref=e419]:
+                      - rowgroup [ref=e431]:
+                        - row "时间戳 Bid Ask Spread Bid Vol Ask Vol 时段 有效 流动性" [ref=e432]:
+                          - columnheader "时间戳" [ref=e433]
+                          - columnheader "Bid" [ref=e434]
+                          - columnheader "Ask" [ref=e435]
+                          - columnheader "Spread" [ref=e436]
+                          - columnheader "Bid Vol" [ref=e437]
+                          - columnheader "Ask Vol" [ref=e438]
+                          - columnheader "时段" [ref=e439]
+                          - columnheader "有效" [ref=e440]
+                          - columnheader "流动性" [ref=e441]
+                          - columnheader [ref=e442]
+                    - table [ref=e444]:
+                      - rowgroup [ref=e455]:
+                        - row "10:30:45.123 2045.50 2045.52 0.0200 5.2 3.8 US 有效 充足" [ref=e456]:
+                          - cell "10:30:45.123" [ref=e457]:
+                            - code [ref=e459]: 10:30:45.123
+                          - cell "2045.50" [ref=e460]
+                          - cell "2045.52" [ref=e461]
+                          - cell "0.0200" [ref=e462]
+                          - cell "5.2" [ref=e463]
+                          - cell "3.8" [ref=e464]
+                          - cell "US" [ref=e465]:
+                            - generic [ref=e466]: US
+                          - cell "有效" [ref=e467]:
+                            - generic [ref=e470]: 有效
+                          - cell "充足" [ref=e471]:
+                            - generic [ref=e472]: 充足
+                        - row "10:30:44.123 2045.48 2045.50 0.0200 4.5 4.2 US 有效 充足" [ref=e474]:
+                          - cell "10:30:44.123" [ref=e475]:
+                            - code [ref=e477]: 10:30:44.123
+                          - cell "2045.48" [ref=e478]
+                          - cell "2045.50" [ref=e479]
+                          - cell "0.0200" [ref=e480]
+                          - cell "4.5" [ref=e481]
+                          - cell "4.2" [ref=e482]
+                          - cell "US" [ref=e483]:
+                            - generic [ref=e484]: US
+                          - cell "有效" [ref=e485]:
+                            - generic [ref=e488]: 有效
+                          - cell "充足" [ref=e489]:
+                            - generic [ref=e490]: 充足
+                        - row "10:30:43.623 2045.52 2045.55 0.0300 8.5 6.2 US 无效 不足" [ref=e492]:
+                          - cell "10:30:43.623" [ref=e493]:
+                            - code [ref=e495]: 10:30:43.623
+                          - cell "2045.52" [ref=e496]
+                          - cell "2045.55" [ref=e497]
+                          - cell "0.0300" [ref=e498]
+                          - cell "8.5" [ref=e499]
+                          - cell "6.2" [ref=e500]
+                          - cell "US" [ref=e501]:
+                            - generic [ref=e502]: US
+                          - cell "无效" [ref=e503]:
+                            - generic [ref=e506]: 无效
+                          - cell "不足" [ref=e507]:
+                            - generic [ref=e508]: 不足
+                        - row "10:30:43.123 2045.50 2045.52 0.0200 4.8 4.5 US 有效 充足" [ref=e510]:
+                          - cell "10:30:43.123" [ref=e511]:
+                            - code [ref=e513]: 10:30:43.123
+                          - cell "2045.50" [ref=e514]
+                          - cell "2045.52" [ref=e515]
+                          - cell "0.0200" [ref=e516]
+                          - cell "4.8" [ref=e517]
+                          - cell "4.5" [ref=e518]
+                          - cell "US" [ref=e519]:
+                            - generic [ref=e520]: US
+                          - cell "有效" [ref=e521]:
+                            - generic [ref=e524]: 有效
+                          - cell "充足" [ref=e525]:
+                            - generic [ref=e526]: 充足
+                        - row "10:30:42.623 2045.48 2045.51 0.0300 0.5 0.4 US 有效 不足" [ref=e528]:
+                          - cell "10:30:42.623" [ref=e529]:
+                            - code [ref=e531]: 10:30:42.623
+                          - cell "2045.48" [ref=e532]
+                          - cell "2045.51" [ref=e533]
+                          - cell "0.0300" [ref=e534]
+                          - cell "0.5" [ref=e535]
+                          - cell "0.4" [ref=e536]
+                          - cell "US" [ref=e537]:
+                            - generic [ref=e538]: US
+                          - cell "有效" [ref=e539]:
+                            - generic [ref=e542]: 有效
+                          - cell "不足" [ref=e543]:
+                            - generic [ref=e544]: 不足
+                  - list [ref=e546]:
+                    - listitem "上一页" [ref=e547]:
+                      - button "left" [disabled] [ref=e548]:
+                        - img "left" [ref=e549]:
+                          - img [ref=e550]
+                    - listitem "1" [ref=e552] [cursor=pointer]:
+                      - generic [ref=e553]: "1"
+                    - listitem "下一页" [ref=e554]:
+                      - button "right" [disabled] [ref=e555]:
+                        - img "right" [ref=e556]:
+                          - img [ref=e557]
+            - generic [ref=e561]:
+              - generic [ref=e563]:
+                - generic [ref=e564]: 一致性
+                - generic [ref=e565]:
+                  - generic [ref=e566]: "99.2"
+                  - generic [ref=e567]: "%"
+              - generic [ref=e569]:
+                - generic [ref=e570]: 准确性
+                - generic [ref=e571]:
+                  - generic [ref=e572]: "99.8"
+                  - generic [ref=e573]: "%"
+              - generic [ref=e575]:
+                - generic [ref=e576]: 完整性
+                - generic [ref=e577]:
+                  - generic [ref=e578]: "99.7"
+                  - generic [ref=e579]: "%"
+              - generic [ref=e581]:
+                - generic [ref=e582]: 及时性
+                - generic [ref=e583]:
+                  - generic [ref=e584]: "99.9"
+                  - generic [ref=e585]: "%"
+          - generic [ref=e586]:
+            - generic [ref=e587]:
+              - generic [ref=e590]:
+                - img "thunderbolt" [ref=e591]:
+                  - img [ref=e592]
+                - text: 实时监控
+              - generic [ref=e595]:
+                - generic [ref=e597]:
+                  - generic [ref=e599]:
+                    - generic [ref=e600]: 已处理
+                    - generic [ref=e601]:
+                      - generic [ref=e602]: 1,247,890
+                      - generic [ref=e603]: 条
+                  - generic [ref=e605]:
+                    - generic [ref=e606]: 处理速度
+                    - generic [ref=e607]:
+                      - generic [ref=e608]: 21,340
+                      - generic [ref=e609]: tps
+                - generic [ref=e611]:
+                  - generic [ref=e612]:
+                    - generic [ref=e614]:
+                      - generic [ref=e615]: 有效 Tick
+                      - generic [ref=e617]: 1,234,567
+                    - generic [ref=e619]:
+                      - generic [ref=e620]: 无效 Tick
+                      - generic [ref=e622]: 13,323
+                  - progressbar [ref=e623]:
+                    - generic "98.93%" [ref=e627]
+                - generic [ref=e629]:
+                  - generic [ref=e630]:
+                    - img "clock-circle" [ref=e631]:
+                      - img [ref=e632]
+                    - text: 清洗进度
+                  - progressbar [ref=e635]:
+                    - generic "45%" [ref=e639]
+                - generic [ref=e641]:
+                  - generic [ref=e642]:
+                    - img "line-chart" [ref=e643]:
+                      - img [ref=e644]
+                    - text: 时段分布
+                  - generic [ref=e646]:
+                    - generic [ref=e648]:
+                      - generic [ref=e649]: 26%
+                      - text: ASIAN
+                    - generic [ref=e651]:
+                      - generic [ref=e652]: 36%
+                      - text: EUROPEAN
+                    - generic [ref=e654]:
+                      - generic [ref=e655]: 38%
+                      - text: US
+            - generic [ref=e656]:
+              - generic [ref=e659]: Flag 统计
+              - generic [ref=e661]:
+                - generic [ref=e663]:
+                  - generic [ref=e665]:
+                    - img "exclamation-circle" [ref=e666]:
+                      - img [ref=e667]
+                    - generic [ref=e670]: "234"
+                    - text: CRITICAL
+                  - generic [ref=e672]:
+                    - img "warning" [ref=e673]:
+                      - img [ref=e674]
+                    - generic [ref=e676]: "1892"
+                    - text: WARNING
+                  - generic [ref=e678]:
+                    - img "info-circle" [ref=e679]:
+                      - img [ref=e680]
+                    - generic [ref=e683]: "11197"
+                    - text: INFO
+                - separator [ref=e685]
+                - generic [ref=e687]:
+                  - generic [ref=e689]:
+                    - generic [ref=e690]: 平均处理时间
+                    - generic [ref=e691]:
+                      - generic [ref=e692]: "46.8"
+                      - generic [ref=e693]: μs
+                  - generic [ref=e695]:
+                    - generic [ref=e696]: 有效率
+                    - generic [ref=e697]:
+                      - generic [ref=e698]: "98.93"
+                      - generic [ref=e699]: "%"
+        - generic [ref=e702]:
+          - generic [ref=e704]:
+            - img "check-circle" [ref=e706]:
+              - img [ref=e707]
+            - generic [ref=e711]:
+              - strong [ref=e713]: 数据质量目标
+              - text: 98.7%+ 监管级数据质量
+          - generic [ref=e715]:
+            - img "thunderbolt" [ref=e717]:
+              - img [ref=e718]
+            - generic [ref=e721]:
+              - strong [ref=e723]: 性能要求
+              - text: <50ms 延迟 | >21,340 tps
+          - generic [ref=e725]:
+            - img "line-chart" [ref=e727]:
+              - img [ref=e728]
+            - generic [ref=e731]:
+              - strong [ref=e733]: 波动率自适应
+              - text: 基于实时市场波动动态调整阈值
+          - generic [ref=e735]:
+            - img "clock-circle" [ref=e737]:
+              - img [ref=e738]
+            - generic [ref=e742]:
+              - strong [ref=e744]: 时段感知
+              - text: ASIAN | EUROPEAN | US 差异化策略

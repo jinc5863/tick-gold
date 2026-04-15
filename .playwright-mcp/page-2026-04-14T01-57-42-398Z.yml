@@ -1,0 +1,57 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img "dashboard" [ref=e7]:
+          - img [ref=e8]
+        - generic [ref=e10]: Tick Gold
+        - generic [ref=e11]: PRO v1.0
+      - generic [ref=e12]:
+        - generic [ref=e13]: 数据流水线
+        - menu [ref=e14]:
+          - menuitem "upload 数据导入" [ref=e15] [cursor=pointer]:
+            - img "upload" [ref=e16]:
+              - img [ref=e17]
+            - link "数据导入" [ref=e20]:
+              - /url: /data/import
+          - menuitem "delete 数据清洗" [ref=e21] [cursor=pointer]:
+            - img "delete" [ref=e22]:
+              - img [ref=e23]
+            - link "数据清洗" [ref=e26]:
+              - /url: /data/clean
+          - menuitem "check-circle 质量分析" [ref=e27] [cursor=pointer]:
+            - img "check-circle" [ref=e28]:
+              - img [ref=e29]
+            - link "质量分析" [ref=e33]:
+              - /url: /data/quality
+          - menuitem "database 数据库" [ref=e34] [cursor=pointer]:
+            - img "database" [ref=e35]:
+              - img [ref=e36]
+            - link "数据库" [ref=e39]:
+              - /url: /data/database
+          - menuitem "bar-chart 统计报表" [ref=e40] [cursor=pointer]:
+            - img "bar-chart" [ref=e41]:
+              - img [ref=e42]
+            - link "统计报表" [ref=e45]:
+              - /url: /data/statistics
+  - generic [ref=e46]:
+    - banner [ref=e47]:
+      - generic [ref=e49]:
+        - generic [ref=e51]: XAUUSD
+        - generic [ref=e52]: 2,034.50
+        - generic [ref=e53]: +12.30 (+0.64%)
+      - generic [ref=e55]:
+        - generic [ref=e57]:
+          - img "dollar" [ref=e58]:
+            - img [ref=e59]
+          - generic [ref=e61]: "账户: 100,000"
+        - generic [ref=e63]:
+          - img "clock-circle" [ref=e64]:
+            - img [ref=e65]
+          - generic [ref=e68]: 09:57:42 CST
+        - generic [ref=e70]: 亚盘
+        - generic [ref=e72]:
+          - img "wifi" [ref=e73]:
+            - img [ref=e74]
+          - generic [ref=e76]: 连接正常
+    - main [ref=e77]

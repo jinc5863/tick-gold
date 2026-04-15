@@ -1,0 +1,428 @@
+/* Dashboard Container */
+.dashboard-container {
+  padding: 0;
+  background: #0A0A0F;
+  min-height: calc(100vh - 48px);
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #292524;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboard-title {
+  color: #FAFAF9;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  font-family: 'Cormorant', serif;
+}
+
+.dashboard-subtitle {
+  color: #A8A29E;
+  font-size: 14px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.connection-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.connection-text {
+  color: #A8A29E;
+}
+
+.connection-tag {
+  margin-left: 4px;
+}
+
+.reconnect-btn {
+  cursor: pointer;
+  color: #CA8A04;
+  border-color: #CA8A04;
+}
+
+.reconnect-btn:hover {
+  color: #E5A805;
+  border-color: #E5A805;
+}
+
+/* Stats Cards Row */
+.stats-row {
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: #1C1917;
+  border: 1px solid #292524;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.stat-card:hover {
+  border-color: #CA8A04;
+  box-shadow: 0 4px 12px rgba(202, 138, 4, 0.15);
+}
+
+.stat-card .ant-card-body {
+  padding: 20px;
+}
+
+.stat-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon {
+  font-size: 24px;
+  color: #CA8A04;
+}
+
+.volume-icon {
+  background: rgba(202, 138, 4, 0.15);
+}
+
+.factors-icon {
+  background: rgba(59, 130, 246, 0.15);
+}
+
+.factors-icon .stat-icon {
+  color: #3B82F6;
+}
+
+.risk-icon {
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.risk-icon .stat-icon {
+  color: #22C55E;
+}
+
+.strategies-icon {
+  background: rgba(168, 85, 247, 0.15);
+}
+
+.strategies-icon .stat-icon {
+  color: #A855F7;
+}
+
+.stat-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  color: #A8A29E;
+  font-size: 13px;
+}
+
+.stat-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.statistic .ant-statistic-content {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.stat-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.stat-change.positive {
+  color: #22C55E;
+}
+
+.stat-change.negative {
+  color: #EF4444;
+}
+
+.change-label {
+  color: #78716C;
+  margin-left: 4px;
+}
+
+.stat-subtitle {
+  color: #78716C;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.stat-running {
+  color: #22C55E;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.risk-rating {
+  font-size: 36px;
+  font-weight: 700;
+  color: #CA8A04;
+  font-family: 'Cormorant', serif;
+}
+
+/* Main Row */
+.main-row {
+  margin-bottom: 16px;
+}
+
+.market-card {
+  background: #1C1917;
+  border: 1px solid #292524;
+  border-radius: 12px;
+  height: 100%;
+}
+
+.market-card .ant-card-head {
+  border-bottom: 1px solid #292524;
+  min-height: 48px;
+  padding: 0 20px;
+}
+
+.market-card .ant-card-head-title {
+  color: #FAFAF9;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.market-card .ant-card-body {
+  padding: 20px;
+}
+
+.card-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-title {
+  color: #FAFAF9;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.live-badge {
+  color: #22C55E;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.stat-title {
+  color: #A8A29E;
+  font-size: 13px;
+}
+
+.price-details {
+  margin-top: 16px;
+}
+
+.chart-container {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #292524;
+}
+
+/* Connection Card */
+.connection-card {
+  background: #1C1917;
+  border: 1px solid #292524;
+  border-radius: 12px;
+  height: 100%;
+}
+
+.connection-card .ant-card-head {
+  border-bottom: 1px solid #292524;
+  min-height: 48px;
+}
+
+.connection-card .ant-card-head-title {
+  color: #FAFAF9;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.connection-card .ant-card-body {
+  padding: 16px;
+}
+
+.connection-table .ant-table {
+  background: transparent;
+}
+
+.connection-table .ant-table-thead > tr > th {
+  background: transparent;
+  color: #A8A29E;
+  border-bottom: 1px solid #292524;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.connection-table .ant-table-tbody > tr > td {
+  background: transparent;
+  border-bottom: 1px solid #292524;
+}
+
+.connection-table .ant-table-tbody > tr:hover > td {
+  background: rgba(202, 138, 4, 0.05);
+}
+
+.EA-status {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #292524;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.EA-status-label {
+  color: #A8A29E;
+  font-size: 13px;
+}
+
+.EA-status-tag {
+  font-weight: 500;
+}
+
+/* Actions Row */
+.actions-row {
+  margin-bottom: 16px;
+}
+
+.actions-card {
+  background: #1C1917;
+  border: 1px solid #292524;
+  border-radius: 12px;
+}
+
+.actions-card .ant-card-head {
+  border-bottom: 1px solid #292524;
+  min-height: 48px;
+}
+
+.actions-card .ant-card-head-title {
+  color: #FAFAF9;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.actions-card .ant-card-body {
+  padding: 16px 20px;
+}
+
+.actions-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.action-btn-primary {
+  background: #CA8A04;
+  border-color: #CA8A04;
+  color: #0A0A0F;
+}
+
+.action-btn-primary:hover {
+  background: #E5A805;
+  border-color: #E5A805;
+  color: #0A0A0F;
+}
+
+.action-btn-default {
+  background: transparent;
+  border-color: #44403C;
+  color: #FAFAF9;
+}
+
+.action-btn-default:hover {
+  background: #292524;
+  border-color: #CA8A04;
+  color: #CA8A04;
+}
+
+.action-btn-danger {
+  background: transparent;
+  border-color: #EF4444;
+  color: #EF4444;
+}
+
+.action-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #DC2626;
+  color: #DC2626;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .dashboard-title {
+    font-size: 24px;
+  }
+  
+  .stat-card-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .stat-icon-wrapper {
+    margin-bottom: 8px;
+  }
+  
+  .risk-rating {
+    font-size: 28px;
+  }
+}
