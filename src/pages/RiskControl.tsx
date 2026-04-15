@@ -237,13 +237,13 @@ const RiskControl: React.FC = () => {
           <Col xs={24} lg={6}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>综合评级</span>}
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <div
@@ -276,13 +276,13 @@ const RiskControl: React.FC = () => {
           <Col xs={24} lg={6}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>最大回撤</span>}
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <div style={{ color: '#EF4444', fontSize: '32px', fontWeight: 'bold' }}>-2.35%</div>
@@ -303,13 +303,13 @@ const RiskControl: React.FC = () => {
           <Col xs={24} lg={6}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>隔夜风险</span>}
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <div style={{ color: '#F97316', fontSize: '32px', fontWeight: 'bold' }}>0.52%</div>
@@ -330,13 +330,13 @@ const RiskControl: React.FC = () => {
           <Col xs={24} lg={6}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>缺口风险</span>}
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <div style={{ color: '#22C55E', fontSize: '32px', fontWeight: 'bold' }}>0.15%</div>
@@ -366,13 +366,13 @@ const RiskControl: React.FC = () => {
                   <span style={{ color: '#FAFAF9' }}>交易前风控</span>
                 </Space>
               }
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ marginBottom: '12px' }}>
                 <Tag color="green">参数校验</Tag>
@@ -410,13 +410,13 @@ const RiskControl: React.FC = () => {
                   <span style={{ color: '#FAFAF9' }}>交易中风控</span>
                 </Space>
               }
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ marginBottom: '12px' }}>
                 <Tag color="orange">实时监控</Tag>
@@ -454,13 +454,13 @@ const RiskControl: React.FC = () => {
                   <span style={{ color: '#FAFAF9' }}>交易后风控</span>
                 </Space>
               }
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ marginBottom: '12px' }}>
                 <Tag color="blue">报告归因</Tag>
@@ -496,12 +496,12 @@ const RiskControl: React.FC = () => {
           <Col xs={24} lg={12}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>风险指标设置</span>}
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Form form={form} layout="vertical">
                 <Row gutter={16}>
@@ -533,26 +533,30 @@ const RiskControl: React.FC = () => {
                 <Row gutter={16}>
                   <Col span={12}>
                     <Form.Item label={<span style={{ color: '#A8A29E' }}>隔夜风险限额</span>}>
-                      <InputNumber
-                        value={overnightRiskLimit}
-                        onChange={(val) => setOvernightRiskLimit(val ?? 50)}
-                        min={0}
-                        max={100}
-                        style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
-                        addonAfter="%"
-                      />
+                      <Space.Compact>
+                        <InputNumber
+                          value={overnightRiskLimit}
+                          onChange={(val) => setOvernightRiskLimit(val ?? 50)}
+                          min={0}
+                          max={100}
+                          style={{ width: "100%", background: "#0A0A0F", borderColor: "#44403C" }}
+                        />
+                        <span>%</span>
+                      </Space.Compact>
                     </Form.Item>
                   </Col>
                   <Col span={12}>
                     <Form.Item label={<span style={{ color: '#A8A29E' }}>缺口风险限额</span>}>
-                      <InputNumber
-                        value={gapRiskLimit}
-                        onChange={(val) => setGapRiskLimit(val ?? 20)}
-                        min={0}
-                        max={100}
-                        style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
-                        addonAfter="%"
-                      />
+                      <Space.Compact>
+                        <InputNumber
+                          value={gapRiskLimit}
+                          onChange={(val) => setGapRiskLimit(val ?? 20)}
+                          min={0}
+                          max={100}
+                          style={{ width: "100%", background: "#0A0A0F", borderColor: "#44403C" }}
+                        />
+                        <span>%</span>
+                      </Space.Compact>
                     </Form.Item>
                   </Col>
                 </Row>
@@ -588,12 +592,12 @@ const RiskControl: React.FC = () => {
                   <span style={{ color: '#FAFAF9' }}>风险预警规则</span>
                 </Space>
               }
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ maxHeight: '280px', overflowY: 'auto' }}>
                 {alertRules.map((rule) => (
@@ -639,9 +643,9 @@ const RiskControl: React.FC = () => {
           {displayIndicators.map((indicator: RiskIndicator) => (
             <Col key={indicator.key} xs={24} sm={12} lg={4}>
               <Card
-                bordered={false}
+                variant="borderless"
                 style={{ background: '#1C1917', border: '1px solid #44403C' }}
-                bodyStyle={{ padding: '12px' }}
+                styles={{ body: { padding: '12px' } }}
               >
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ color: '#A8A29E', fontSize: '12px', marginBottom: '8px' }}>
@@ -671,9 +675,9 @@ const RiskControl: React.FC = () => {
         {/* Audit Status Table */}
         <Card
           title={<span style={{ color: '#FAFAF9' }}>审核状态</span>}
-          bordered={false}
+          variant="borderless"
           style={{ background: '#1C1917', border: '1px solid #44403C' }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
           extra={
             <Space>
               <Select defaultValue="all" style={{ width: 120 }}>

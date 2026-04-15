@@ -181,9 +181,9 @@ const Database: React.FC = () => {
 
         <Card
           title={<span style={{ color: '#FAFAF9' }}>查询条件</span>}
-          bordered={false}
+          variant="borderless"
           style={{ background: '#1C1917', border: '1px solid #44403C' }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
         >
           <Form form={form} layout="vertical">
             <Row gutter={16}>
@@ -243,13 +243,13 @@ const Database: React.FC = () => {
 
         <Card
           title={<span style={{ color: '#FAFAF9' }}>数据列表</span>}
-          bordered={false}
+          variant="borderless"
           style={{
             background: '#1C1917',
             border: '1px solid #44403C',
             marginTop: '16px',
           }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
           extra={
             <Space>
               <span style={{ color: '#A8A29E' }}>

@@ -159,9 +159,9 @@ const Backtesting: React.FC = () => {
         {/* Parameters */}
         <Card
           title={<span style={{ color: '#FAFAF9' }}>参数设置</span>}
-          bordered={false}
+          variant="borderless"
           style={{ background: '#1C1917', border: '1px solid #44403C' }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
         >
           <Form
             form={form}
@@ -205,30 +205,36 @@ const Backtesting: React.FC = () => {
             <Row gutter={16}>
               <Col xs={24} sm={12} lg={6}>
                 <Form.Item label={<span style={{ color: '#A8A29E' }}>样本内比例</span>} name="inSampleRatio">
-                  <InputNumber
+                  <Space.Compact>
+    <InputNumber
                     min={0}
-                    max={100}
-                    style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
-                    addonAfter="%"
-                  />
+      max={100}
+      style={{ width: "100%", background: "#0A0A0F", borderColor: "#44403C" }}
+    />
+    <span>%</span>
+  </Space.Compact>
                 </Form.Item>
               </Col>
               <Col xs={24} sm={12} lg={6}>
                 <Form.Item label={<span style={{ color: '#A8A29E' }}>手续费</span>} name="commission">
-                  <InputNumber
+                  <Space.Compact>
+    <InputNumber
                     min={0}
-                    style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
-                    addonAfter="$/手"
-                  />
+      style={{ width: "100%", background: "#0A0A0F", borderColor: "#44403C" }}
+    />
+    <span>$/手</span>
+  </Space.Compact>
                 </Form.Item>
               </Col>
               <Col xs={24} sm={12} lg={6}>
                 <Form.Item label={<span style={{ color: '#A8A29E' }}>滑点</span>} name="slippage">
-                  <InputNumber
+                  <Space.Compact>
+    <InputNumber
                     min={0}
-                    style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
-                    addonAfter="点"
-                  />
+      style={{ width: "100%", background: "#0A0A0F", borderColor: "#44403C" }}
+    />
+    <span>点</span>
+  </Space.Compact>
                 </Form.Item>
               </Col>
               <Col xs={24} sm={12} lg={6}>
@@ -262,7 +268,7 @@ const Backtesting: React.FC = () => {
         {backtestResult && (
           <Row gutter={[16, 16]} style={{ marginTop: '24px' }}>
             <Col xs={24} sm={12} lg={6}>
-              <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+              <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
                 <Statistic
                   title={<span style={{ color: '#A8A29E' }}>总收益率</span>}
                   value={backtestResult.totalReturn}
@@ -273,7 +279,7 @@ const Backtesting: React.FC = () => {
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+              <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
                 <Statistic
                   title={<span style={{ color: '#A8A29E' }}>夏普比率</span>}
                   value={backtestResult.sharpeRatio}
@@ -283,7 +289,7 @@ const Backtesting: React.FC = () => {
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+              <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
                 <Statistic
                   title={<span style={{ color: '#A8A29E' }}>最大回撤</span>}
                   value={backtestResult.maxDrawdown}
@@ -294,7 +300,7 @@ const Backtesting: React.FC = () => {
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+              <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
                 <Statistic
                   title={<span style={{ color: '#A8A29E' }}>胜率</span>}
                   value={backtestResult.winRate}
@@ -312,9 +318,9 @@ const Backtesting: React.FC = () => {
           <Col xs={24} lg={16}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>权益曲线</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={<LineChartOutlined style={{ color: '#CA8A04' }} />}
             >
               <div style={{ height: '300px' }}>
@@ -356,9 +362,9 @@ const Backtesting: React.FC = () => {
           <Col xs={24} lg={8}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>月度收益对比</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Table
                 columns={summaryColumns}
@@ -373,13 +379,13 @@ const Backtesting: React.FC = () => {
         {/* Summary Table */}
         <Card
           title={<span style={{ color: '#FAFAF9' }}>交易统计</span>}
-          bordered={false}
+          variant="borderless"
           style={{
             background: '#1C1917',
             border: '1px solid #44403C',
             marginTop: '16px',
           }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
         >
           <Table
             columns={summaryColumns}
@@ -391,13 +397,13 @@ const Backtesting: React.FC = () => {
         {/* Conclusion */}
         <Card
           title={<span style={{ color: '#FAFAF9' }}>回测结论</span>}
-          bordered={false}
+          variant="borderless"
           style={{
             background: '#1C1917',
             border: '1px solid #44403C',
             marginTop: '16px',
           }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
         >
           <Row gutter={[16, 16]}>
             <Col span={8}>

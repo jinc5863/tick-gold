@@ -291,7 +291,7 @@ const FactorAnalysis: React.FC = () => {
 
         <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>候选因子数</span>}
                 value={displayFactors.length}
@@ -301,7 +301,7 @@ const FactorAnalysis: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>有效因子数</span>}
                 value={effectiveCount}
@@ -311,7 +311,7 @@ const FactorAnalysis: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>已选因子数</span>}
                 value={selectedFactors.length}
@@ -320,7 +320,7 @@ const FactorAnalysis: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>因子IC均值</span>}
                 value={avgIC}
@@ -335,9 +335,9 @@ const FactorAnalysis: React.FC = () => {
           <Col xs={24} lg={16}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>候选因子列表</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={
                 <Space>
                   <Checkbox onChange={(e) => handleSelectAll(e.target.checked)}>
@@ -373,9 +373,9 @@ const FactorAnalysis: React.FC = () => {
           <Col xs={24} lg={8}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>IC时序图</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={<LineChartOutlined style={{ color: '#CA8A04' }} />}
             >
               <div style={{ height: '200px' }}>
@@ -402,13 +402,13 @@ const FactorAnalysis: React.FC = () => {
 
             <Card
               title={<span style={{ color: '#FAFAF9' }}>分组回测收益</span>}
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 marginTop: '16px',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={<BarChartOutlined style={{ color: '#CA8A04' }} />}
             >
               <div style={{ height: '200px' }}>
@@ -439,13 +439,13 @@ const FactorAnalysis: React.FC = () => {
 
         <Card
           title={<span style={{ color: '#FAFAF9' }}>已选因子配置</span>}
-          bordered={false}
+          variant="borderless"
           style={{
             background: '#1C1917',
             border: '1px solid #44403C',
             marginTop: '16px',
           }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
           extra={
             <Space>
               <Button

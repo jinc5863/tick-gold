@@ -145,9 +145,9 @@ const DataImport: React.FC = () => {
 
           <Card
             title={<span style={{ color: '#FAFAF9' }}>上传文件列表</span>}
-            bordered={false}
+            variant="borderless"
             style={{ background: '#1C1917', border: '1px solid #44403C' }}
-            headStyle={{ borderBottom: '1px solid #44403C' }}
+            styles={{ header: { borderBottom: '1px solid #44403C' } }}
           >
             {fileList.length > 0 ? (
               <Space direction="vertical" style={{ width: '100%' }}>
@@ -194,9 +194,9 @@ const DataImport: React.FC = () => {
       children: (
         <Card
           title={<span style={{ color: '#FAFAF9' }}>字段映射配置</span>}
-          bordered={false}
+          variant="borderless"
           style={{ background: '#1C1917', border: '1px solid #44403C' }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
         >
           <Form layout="vertical">
             <Form.Item label={<span style={{ color: '#A8A29E' }}>时间字段</span>}>
@@ -241,9 +241,9 @@ const DataImport: React.FC = () => {
       children: (
         <Card
           title={<span style={{ color: '#FAFAF9' }}>数据预览</span>}
-          bordered={false}
+          variant="borderless"
           style={{ background: '#1C1917', border: '1px solid #44403C' }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
         >
           <Table
             columns={previewColumns}
@@ -274,9 +274,9 @@ const DataImport: React.FC = () => {
         <Space direction="vertical" size="large" style={{ width: '100%' }}>
           <Card
             title={<span style={{ color: '#FAFAF9' }}>导入时间范围</span>}
-            bordered={false}
+            variant="borderless"
             style={{ background: '#1C1917', border: '1px solid #44403C' }}
-            headStyle={{ borderBottom: '1px solid #44403C' }}
+            styles={{ header: { borderBottom: '1px solid #44403C' } }}
           >
             <Space>
               <RangePicker style={{ background: '#1C1917', borderColor: '#44403C' }} />

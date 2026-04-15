@@ -247,9 +247,9 @@ const AIResearch: React.FC = () => {
                   生成特征列表
                 </span>
               }
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={
                 <Space>
                   <Button icon={<ReloadOutlined />}>重新生成</Button>
@@ -272,9 +272,9 @@ const AIResearch: React.FC = () => {
           <Col xs={24} lg={12}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>特征重要性分析</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ height: '280px' }}>
                 <ResponsiveContainer width="100%" height="100%">
@@ -307,9 +307,9 @@ const AIResearch: React.FC = () => {
               模型训练
             </span>
           }
-          bordered={false}
+          variant="borderless"
           style={{ background: '#1C1917', border: '1px solid #44403C', marginBottom: '24px' }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
         >
           <Row gutter={[16, 16]}>
             <Col xs={24} lg={8}>
@@ -424,9 +424,9 @@ const AIResearch: React.FC = () => {
                   强化学习训练
                 </span>
               }
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={
                 <Badge status={isTraining ? 'processing' : 'default'} text={<span style={{ color: '#A8A29E' }}>{isTraining ? '训练中' : '已停止'}</span>} />
               }
@@ -508,9 +508,9 @@ const AIResearch: React.FC = () => {
           <Col xs={24} lg={10}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>当前策略</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={<Tag icon={<CheckCircleOutlined />} color="green">在线</Tag>}
             >
               <div style={{ padding: '16px', background: '#0A0A0F', borderRadius: '8px', border: '1px solid #44403C' }}>

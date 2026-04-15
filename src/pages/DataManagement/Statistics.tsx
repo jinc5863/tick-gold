@@ -95,13 +95,13 @@ const Statistics: React.FC = () => {
           <Col xs={24} lg={8}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>数据质量评分</span>}
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <Progress
@@ -134,13 +134,13 @@ const Statistics: React.FC = () => {
           <Col xs={24} lg={16}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>数据量趋势</span>}
-              bordered={false}
+              variant="borderless"
               style={{
                 background: '#1C1917',
                 border: '1px solid #44403C',
                 height: '100%',
               }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ height: '220px' }}>
                 <ResponsiveContainer width="100%" height="100%">
@@ -176,9 +176,9 @@ const Statistics: React.FC = () => {
           <Col xs={24} lg={12}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>异常分布</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <div style={{ height: '250px' }}>
                 <ResponsiveContainer width="100%" height="100%">
@@ -213,15 +213,15 @@ const Statistics: React.FC = () => {
           <Col xs={24} lg={12}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>详细统计</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Row gutter={[16, 16]}>
                 <Col span={12}>
                   <Card
                     size="small"
-                    bordered={false}
+                    variant="borderless"
                     style={{ background: '#0A0A0F', border: '1px solid #44403C' }}
                   >
                     <Statistic
@@ -235,7 +235,7 @@ const Statistics: React.FC = () => {
                 <Col span={12}>
                   <Card
                     size="small"
-                    bordered={false}
+                    variant="borderless"
                     style={{ background: '#0A0A0F', border: '1px solid #44403C' }}
                   >
                     <Statistic
@@ -249,7 +249,7 @@ const Statistics: React.FC = () => {
                 <Col span={12}>
                   <Card
                     size="small"
-                    bordered={false}
+                    variant="borderless"
                     style={{ background: '#0A0A0F', border: '1px solid #44403C' }}
                   >
                     <Statistic
@@ -263,7 +263,7 @@ const Statistics: React.FC = () => {
                 <Col span={12}>
                   <Card
                     size="small"
-                    bordered={false}
+                    variant="borderless"
                     style={{ background: '#0A0A0F', border: '1px solid #44403C' }}
                   >
                     <Statistic
@@ -284,9 +284,9 @@ const Statistics: React.FC = () => {
           <Col xs={24} lg={8}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>完整性</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Progress
                 percent={98.5}
@@ -302,9 +302,9 @@ const Statistics: React.FC = () => {
           <Col xs={24} lg={8}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>准确性</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Progress
                 percent={96.2}
@@ -320,9 +320,9 @@ const Statistics: React.FC = () => {
           <Col xs={24} lg={8}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>及时性</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Progress
                 percent={99.1}

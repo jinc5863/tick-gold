@@ -169,7 +169,7 @@ const DataClean: React.FC = () => {
 
         <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>原始数据量</span>}
                 value={1255200}
@@ -179,7 +179,7 @@ const DataClean: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>清洗后数据量</span>}
                 value={1250000}
@@ -189,7 +189,7 @@ const DataClean: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>删除数据量</span>}
                 value={5200}
@@ -199,7 +199,7 @@ const DataClean: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>清洗耗时</span>}
                 value={3.2}
@@ -214,9 +214,9 @@ const DataClean: React.FC = () => {
           <Col xs={24} lg={12}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>清洗规则配置</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={
                 <Button type="primary" style={{ background: '#CA8A04', borderColor: '#CA8A04' }}>
                   添加规则
@@ -251,9 +251,9 @@ const DataClean: React.FC = () => {
           <Col xs={24} lg={12}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>Flag统计</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Space direction="vertical" style={{ width: '100%' }}>
                 {flagStats.map((stat) => (
@@ -292,13 +292,13 @@ const DataClean: React.FC = () => {
 
         <Card
           title={<span style={{ color: '#FAFAF9' }}>实时预览</span>}
-          bordered={false}
+          variant="borderless"
           style={{
             background: '#1C1917',
             border: '1px solid #44403C',
             marginTop: '16px',
           }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
           extra={
             <Space>
               <Button icon={<FilterOutlined />}>只显示异常</Button>

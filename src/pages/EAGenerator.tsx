@@ -257,7 +257,7 @@ const EAGenerator: React.FC = () => {
         {/* Performance Cards */}
         <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>今日盈亏</span>}
                 value={todayProfit}
@@ -268,7 +268,7 @@ const EAGenerator: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>信号总数</span>}
                 value={totalSignals}
@@ -279,7 +279,7 @@ const EAGenerator: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>胜率</span>}
                 value={winRate}
@@ -290,7 +290,7 @@ const EAGenerator: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
-            <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+            <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
               <Statistic
                 title={<span style={{ color: '#A8A29E' }}>夏普比率</span>}
                 value={sharpeRatio}
@@ -306,9 +306,9 @@ const EAGenerator: React.FC = () => {
           <Col xs={24} lg={12}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>策略配置</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={
                 <Space>
                   <span style={{ color: '#A8A29E' }}>运行状态:</span>
@@ -375,20 +375,24 @@ const EAGenerator: React.FC = () => {
                 <Row gutter={16}>
                   <Col span={12}>
                     <Form.Item label={<span style={{ color: '#A8A29E' }}>止损点数</span>} name="stopLoss">
+                      <Space.Compact>
                       <InputNumber
                         min={1}
-                        style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
-                        addonAfter="点"
+                        style={{ width: "100%", background: "#0A0A0F", borderColor: "#44403C" }}
                       />
+                      <span>点</span>
+                    </Space.Compact>
                     </Form.Item>
                   </Col>
                   <Col span={12}>
                     <Form.Item label={<span style={{ color: '#A8A29E' }}>止盈点数</span>} name="takeProfit">
+                      <Space.Compact>
                       <InputNumber
                         min={1}
-                        style={{ width: '100%', background: '#0A0A0F', borderColor: '#44403C' }}
-                        addonAfter="点"
+                        style={{ width: "100%", background: "#0A0A0F", borderColor: "#44403C" }}
                       />
+                      <span>点</span>
+                    </Space.Compact>
                     </Form.Item>
                   </Col>
                 </Row>
@@ -418,9 +422,9 @@ const EAGenerator: React.FC = () => {
           <Col xs={24} lg={12}>
             <Card
               title={<span style={{ color: '#FAFAF9' }}>最新信号</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
               extra={
                 <Tag icon={<FundViewOutlined />} color="gold">
                   实时
@@ -493,9 +497,9 @@ const EAGenerator: React.FC = () => {
             {/* Performance Metrics */}
             <Card
               title={<span style={{ color: '#FAFAF9' }}>绩效指标</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C', marginTop: '16px' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Row gutter={[16, 16]}>
                 <Col span={8}>
@@ -530,9 +534,9 @@ const EAGenerator: React.FC = () => {
             {/* Signal Table */}
             <Card
               title={<span style={{ color: '#FAFAF9' }}>信号记录</span>}
-              bordered={false}
+              variant="borderless"
               style={{ background: '#1C1917', border: '1px solid #44403C', marginTop: '16px' }}
-              headStyle={{ borderBottom: '1px solid #44403C' }}
+              styles={{ header: { borderBottom: '1px solid #44403C' } }}
             >
               <Table
                 columns={signalColumns}
@@ -549,13 +553,13 @@ const EAGenerator: React.FC = () => {
         {/* Position Status */}
         <Card
           title={<span style={{ color: '#FAFAF9' }}>持仓状态</span>}
-          bordered={false}
+          variant="borderless"
           style={{
             background: '#1C1917',
             border: '1px solid #44403C',
             marginTop: '16px',
           }}
-          headStyle={{ borderBottom: '1px solid #44403C' }}
+          styles={{ header: { borderBottom: '1px solid #44403C' } }}
           extra={
             <Tag color={positionStatus.status === 'flat' ? 'default' : positionStatus.status === 'long' ? 'green' : positionStatus.status === 'short' ? 'red' : 'gold'}>
               {positionStatus.label}

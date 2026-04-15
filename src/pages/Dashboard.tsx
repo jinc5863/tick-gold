@@ -216,7 +216,7 @@ const Dashboard: React.FC = () => {
       {/* Stats Cards Row */}
       <Row gutter={[16, 16]} className="stats-row">
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} className="stat-card stat-card-volume">
+          <Card variant="borderless" className="stat-card stat-card-volume">
             <div className="stat-card-content">
               <div className="stat-icon-wrapper volume-icon">
                 <DatabaseOutlined className="stat-icon" />
@@ -242,7 +242,7 @@ const Dashboard: React.FC = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} className="stat-card stat-card-factors">
+          <Card variant="borderless" className="stat-card stat-card-factors">
             <div className="stat-card-content">
               <div className="stat-icon-wrapper factors-icon">
                 <ThunderboltOutlined className="stat-icon" />
@@ -264,7 +264,7 @@ const Dashboard: React.FC = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} className="stat-card stat-card-risk">
+          <Card variant="borderless" className="stat-card stat-card-risk">
             <div className="stat-card-content">
               <div className="stat-icon-wrapper risk-icon">
                 <SafetyOutlined className="stat-icon" />
@@ -280,7 +280,7 @@ const Dashboard: React.FC = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} className="stat-card stat-card-strategies">
+          <Card variant="borderless" className="stat-card stat-card-strategies">
             <div className="stat-card-content">
               <div className="stat-icon-wrapper strategies-icon">
                 <DashboardOutlined className="stat-icon" />
@@ -318,7 +318,7 @@ const Dashboard: React.FC = () => {
                 )}
               </div>
             }
-            bordered={false}
+            variant="borderless"
             className="market-card"
           >
             <Row gutter={16}>
@@ -390,7 +390,7 @@ const Dashboard: React.FC = () => {
         <Col xs={24} lg={8}>
           <Card
             title={<span className="card-title">连接状态</span>}
-            bordered={false}
+            variant="borderless"
             className="connection-card"
           >
             <Table
@@ -414,7 +414,7 @@ const Dashboard: React.FC = () => {
       {/* Quick Actions Row */}
       <Row gutter={[16, 16]} className="actions-row">
         <Col span={24}>
-          <Card bordered={false} className="actions-card">
+          <Card variant="borderless" className="actions-card">
             <div className="actions-header">
               <span className="actions-title">快捷操作</span>
             </div>

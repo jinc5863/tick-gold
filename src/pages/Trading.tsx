@@ -63,6 +63,9 @@ const Trading: React.FC = () => {
   const { positions, setPositions } = useStrategyStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formDirection, setFormDirection] = useState<string>('BUY');
+  const [formSymbol, setFormSymbol] = useState<string>('XAUUSD');
+  const [formQuantity, setFormQuantity] = useState<number>(1.0);
 
   // WebSocket for real-time market data
   const { isConnected } = useWebSocket<{ type: string; symbol: string; bid: number; ask: number }>({
@@ -431,7 +434,13 @@ const Trading: React.FC = () => {
               style={{ background: '#1C1917', border: '1px solid #44403C' }}
               headStyle={{ borderBottom: '1px solid #44403C' }}
             >
-              <Form form={form} layout="vertical">
+              <Form form={form} layout="vertical"
+                onValuesChange={(_changedValues, allValues) => {
+                  setFormDirection(allValues.direction || 'BUY');
+                  setFormSymbol(allValues.symbol || 'XAUUSD');
+                  setFormQuantity(allValues.quantity || 1.0);
+                }}>
+
                 <Form.Item label={<span style={{ color: '#A8A29E' }}>交易品种</span>} name="symbol">
                   <Select>
                     <Select.Option value="XAUUSD">XAUUSD</Select.Option>
@@ -471,11 +480,11 @@ const Trading: React.FC = () => {
                   onClick={handleSubmitOrder}
                   loading={isSubmitting}
                   style={{
-                    background: form.getFieldValue('direction') === 'SELL' ? '#EF4444' : '#22C55E',
-                    borderColor: form.getFieldValue('direction') === 'SELL' ? '#EF4444' : '#22C55E',
+                    background: formDirection === 'SELL' ? '#EF4444' : '#22C55E',
+                    borderColor: formDirection === 'SELL' ? '#EF4444' : '#22C55E',
                   }}
                 >
-                  {form.getFieldValue('direction') === 'SELL' ? '确认卖出' : '确认买入'}
+                  {formDirection === 'SELL' ? '确认卖出' : '确认买入'}
                 </Button>
               </Form>
             </Card>
@@ -497,8 +506,8 @@ const Trading: React.FC = () => {
               loading={isSubmitting}
               onClick={handleSubmitOrder}
               style={{
-                background: form.getFieldValue('direction') === 'SELL' ? '#EF4444' : '#22C55E',
-                borderColor: form.getFieldValue('direction') === 'SELL' ? '#EF4444' : '#22C55E',
+                background: formDirection === 'SELL' ? '#EF4444' : '#22C55E',
+                borderColor: formDirection === 'SELL' ? '#EF4444' : '#22C55E',
               }}
             >
               确认下单
@@ -510,13 +519,13 @@ const Trading: React.FC = () => {
               <Col span={12}>
                 <div style={{ color: '#A8A29E' }}>品种</div>
                 <div style={{ color: '#FAFAF9', fontSize: '16px', fontWeight: 'bold' }}>
-                  {form.getFieldValue('symbol')}
+                  {formSymbol}
                 </div>
               </Col>
               <Col span={12}>
                 <div style={{ color: '#A8A29E' }}>方向</div>
-                <div style={{ color: form.getFieldValue('direction') === 'BUY' ? '#22C55E' : '#EF4444', fontSize: '16px', fontWeight: 'bold' }}>
-                  {form.getFieldValue('direction') === 'BUY' ? '买入' : '卖出'}
+                <div style={{ color: formDirection === 'BUY' ? '#22C55E' : '#EF4444', fontSize: '16px', fontWeight: 'bold' }}>
+                  {formDirection === 'BUY' ? '买入' : '卖出'}
                 </div>
               </Col>
             </Row>
@@ -524,7 +533,7 @@ const Trading: React.FC = () => {
               <Col span={12}>
                 <div style={{ color: '#A8A29E' }}>数量</div>
                 <div style={{ color: '#FAFAF9', fontSize: '16px', fontWeight: 'bold' }}>
-                  {form.getFieldValue('quantity')} 手
+                  {formQuantity} 手
                 </div>
               </Col>
               <Col span={12}>

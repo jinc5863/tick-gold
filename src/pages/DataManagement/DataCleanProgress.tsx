@@ -154,7 +154,7 @@ const DataCleanProgress: React.FC = () => {
       {/* Progress Overview */}
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+          <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
             <Statistic
               title={<span style={{ color: '#A8A29E' }}>总数据量</span>}
               value={total}
@@ -163,7 +163,7 @@ const DataCleanProgress: React.FC = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+          <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
             <Statistic
               title={<span style={{ color: '#A8A29E' }}>已处理</span>}
               value={processed}
@@ -172,7 +172,7 @@ const DataCleanProgress: React.FC = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+          <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
             <Statistic
               title={<span style={{ color: '#A8A29E' }}>处理速度</span>}
               value={speed}
@@ -181,7 +181,7 @@ const DataCleanProgress: React.FC = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} style={{ background: '#1C1917', border: '1px solid #44403C' }}>
+          <Card variant="borderless" style={{ background: '#1C1917', border: '1px solid #44403C' }}>
             <Statistic
               title={<span style={{ color: '#A8A29E' }}>已用时间</span>}
               value={formatTime(elapsedTime)}
@@ -193,7 +193,7 @@ const DataCleanProgress: React.FC = () => {
 
       {/* Main Progress Card */}
       <Card
-        bordered={false}
+        variant="borderless"
         style={{ background: '#1C1917', border: '1px solid #44403C', marginBottom: '24px' }}
       >
         <div style={{ textAlign: 'center', padding: '40px 0' }}>
@@ -263,9 +263,9 @@ const DataCleanProgress: React.FC = () => {
       {/* Processing Timeline */}
       <Card
         title={<span style={{ color: '#FAFAF9' }}>处理阶段</span>}
-        bordered={false}
+        variant="borderless"
         style={{ background: '#1C1917', border: '1px solid #44403C' }}
-        headStyle={{ borderBottom: '1px solid #44403C' }}
+        styles={{ header: { borderBottom: '1px solid #44403C' } }}
       >
         <Timeline
           items={[
