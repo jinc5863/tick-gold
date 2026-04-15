@@ -22,7 +22,7 @@ import {
   CheckCircleOutlined,
 } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
-import { dataAPI } from '../../api';
+import { dataAPI } from '../../services';
 import { useDataStore } from '../../store';
 
 const { RangePicker } = DatePicker;

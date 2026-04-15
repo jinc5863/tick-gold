@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
-import { dataAPI } from '../api';
+import { dataAPI } from '../services';
 
 const { RangePicker } = DatePicker;
 

@@ -40,7 +40,7 @@ import {
   Line,
 } from 'recharts';
 import { useQuery } from '@tanstack/react-query';
-import { factorAPI } from '../api';
+import { factorAPI } from '../services';
 
 const AIResearch: React.FC = () => {
   const [selectedModel, setSelectedModel] = useState<string>('XGBoost');

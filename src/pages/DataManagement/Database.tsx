@@ -23,7 +23,7 @@ import {
   ExportOutlined,
   ReloadOutlined,
 } from '@ant-design/icons';
-import { dataAPI } from '../../api';
+import { dataAPI } from '../../services';
 import type { Tick } from '@/types';
 
 const { RangePicker } = DatePicker;

@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import Optional, List
 
 from fastapi import APIRouter, HTTPException
+from app.schemas.common import APIResponse
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
@@ -24,6 +25,25 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 
 settings = get_settings()
+
+
+@router.get("", response_model=APIResponse)
+async def get_strategy_info():
+    """Get strategy information."""
+    return APIResponse(
+        success=True,
+        message="Strategy API",
+        data={
+            "available_strategies": [
+                {"name": "ma_cross", "description": "Moving Average Crossover"},
+                {"name": "momentum", "description": "Momentum Strategy"},
+                {"name": "mean_reversion", "description": "Mean Reversion"},
+            ],
+            "endpoints": {
+                "POST /backtest": "Run backtest with parameters",
+            }
+        }
+    )
 
 
 def get_db_session() -> Optional[Session]:

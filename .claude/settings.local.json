@@ -268,7 +268,14 @@
       "Bash(npx --yes serve -s dist -p 5173)",
       "Bash(npx --yes http-server dist -p 5173 --spa)",
       "Bash(pkill -f \"http-server\")",
-      "Bash(echo \"Exit code: $?\")"
+      "Bash(echo \"Exit code: $?\")",
+      "WebFetch(domain:localhost)",
+      "mcp__playwright__browser_run_code",
+      "Bash(nohup npm *)",
+      "Read(//tmp/**)",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_network_requests"
     ]
   }
 }

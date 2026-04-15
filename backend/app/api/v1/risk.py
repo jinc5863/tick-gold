@@ -8,6 +8,7 @@ import numpy as np
 
 from app.config import get_settings
 from app.schemas.risk import RiskCheckRequest, RiskCheckResponse
+from app.schemas.common import APIResponse
 from app.core.risk.risk_manager import RiskManager, RiskParams, RiskCheckResult
 
 router = APIRouter()
@@ -24,6 +25,26 @@ _risk_manager = RiskManager(
         position_size=settings.POSITION_SIZE,
     )
 )
+
+
+@router.get("", response_model=APIResponse)
+async def get_risk_info():
+    """Get risk management information."""
+    return APIResponse(
+        success=True,
+        message="Risk API",
+        data={
+            "risk_limits": {
+                "gap_risk": settings.GAP_RISK,
+                "overnight_risk": settings.OVERNIGHT_RISK,
+                "max_drawdown": settings.MAX_DRAWDOWN,
+                "position_size": settings.POSITION_SIZE,
+            },
+            "endpoints": {
+                "POST /check": "Check risk for a position",
+            }
+        }
+    )
 
 
 @router.post("/check", response_model=RiskCheckResponse)

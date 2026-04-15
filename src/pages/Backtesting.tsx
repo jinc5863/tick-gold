@@ -33,7 +33,7 @@ import {
   Area,
   AreaChart,
 } from 'recharts';
-import { strategyAPI } from '../api';
+import { strategyAPI } from '../services';
 import { useStrategyStore } from '../store';
 
 const { RangePicker } = DatePicker;

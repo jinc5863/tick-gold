@@ -30,7 +30,7 @@ import {
   FileTextOutlined,
   WarningOutlined,
 } from '@ant-design/icons';
-import { riskAPI } from '../api';
+import { riskAPI } from '../services';
 import { useRiskStore } from '../store';
 import type { RiskIndicator, AuditTrade } from '@/types';
 

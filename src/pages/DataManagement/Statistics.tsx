@@ -19,7 +19,7 @@ import {
   Pie,
   Cell,
 } from 'recharts';
-import { dataAPI } from '../../api';
+import { dataAPI } from '../../services';
 
 const COLORS = ['#CA8A04', '#3B82F6', '#F97316', '#EF4444', '#22C55E'];
 

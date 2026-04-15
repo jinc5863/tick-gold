@@ -39,7 +39,7 @@ import {
   Bar,
   Legend,
 } from 'recharts';
-import { factorAPI, strategyAPI } from '../api';
+import { factorAPI, strategyAPI } from '../services';
 import { useFactorStore } from '../store';
 import type { Factor } from '@/types';
 

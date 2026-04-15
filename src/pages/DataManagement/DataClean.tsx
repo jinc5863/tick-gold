@@ -22,7 +22,7 @@ import {
   DeleteOutlined,
   FilterOutlined,
 } from '@ant-design/icons';
-import { dataAPI } from '../../api';
+import { dataAPI } from '../../services';
 import { useDataStore } from '../../store';
 
 interface CleaningRule {
