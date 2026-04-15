@@ -1,362 +1,249 @@
-"""Data API endpoints."""
+"""Data API endpoints for tick data management."""
 import csv
 import logging
 from datetime import datetime
 from typing import Optional, List, Dict, Any
-from pathlib import Path
 
-from fastapi import APIRouter, HTTPException
-from sqlalchemy import create_engine, select, func
-from sqlalchemy.orm import Session, sessionmaker
-from sqlalchemy.exc import SQLAlchemyError
+from fastapi import APIRouter, HTTPException, Depends, UploadFile, File, Query
+from sqlalchemy.orm import Session
+from sqlalchemy import func, desc
 
-from app.config import get_settings
-from app.models.tick import Tick
-from app.schemas.tick import (
-    DataImportRequest,
-    DataCleanRequest,
-    TickResponse,
-    TickListResponse,
-)
+from app.database import get_db
+from app.models.tick import Tick as TickData
+from app.services.mt5_service import MT5Simulator, parse_mt5_csv
 from app.schemas.common import APIResponse
-from app.core.cleaning.cleaner import create_cleaner
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
-settings = get_settings()
-
-
-def get_db_session() -> Optional[Session]:
-    """Get database session if connection is available."""
-    if not settings.DATABASE_URL:
-        return None
-    try:
-        engine = create_engine(settings.DATABASE_URL)
-        SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-        return SessionLocal()
-    except Exception as e:
-        logger.warning(f"Database connection failed: {e}")
-        return None
-
-
-def parse_csv_ticks(file_path: str, symbol: str = "XAUUSD") -> List[Dict[str, Any]]:
-    """Parse tick data from CSV file.
-
-    Expected CSV format:
-    timestamp,bid,ask,bid_size,ask_size,volume
-    """
-    ticks = []
-    path = Path(file_path)
-
-    # Try relative to backend directory first
-    if not path.is_absolute():
-        path = Path("/Users/office01/work/tick-gold/backend") / path
-
-    if not path.exists():
-        raise FileNotFoundError(f"CSV file not found: {file_path}")
-
-    with open(path, "r") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            try:
-                tick = {
-                    "timestamp": datetime.fromisoformat(row["timestamp"].replace("Z", "+00:00")),
-                    "symbol": symbol,
-                    "bid": float(row["bid"]),
-                    "ask": float(row["ask"]),
-                    "bid_size": int(row.get("bid_size", 0)),
-                    "ask_size": int(row.get("ask_size", 0)),
-                    "volume": float(row.get("volume", 0.0)),
-                }
-                ticks.append(tick)
-            except (KeyError, ValueError) as e:
-                logger.warning(f"Skipping invalid row: {row}, error: {e}")
-                continue
-
-    return ticks
-
 
 @router.post("/import", response_model=APIResponse)
-async def import_data(request: DataImportRequest):
-    """Import tick data from CSV file."""
+async def import_csv_data(
+    file: UploadFile = File(...),
+    symbol: str = Query("XAUUSD", description="Trading symbol"),
+    db: Session = Depends(get_db)
+):
+    """Import tick data from uploaded CSV file."""
+    if not file.filename.endswith('.csv'):
+        raise HTTPException(status_code=400, detail="Only CSV files are supported")
+
     try:
-        ticks = parse_csv_ticks(request.file_path, request.symbol)
+        # Read file content
+        content = await file.read()
+        lines = content.decode('utf-8').strip().split('\n')
 
-        if not ticks:
+        if len(lines) < 2:
             return APIResponse(
                 success=False,
-                message="No valid ticks found in file",
-                data={"file_path": request.file_path, "symbol": request.symbol, "ticks_imported": 0},
+                message="CSV file is empty or has no data rows",
+                data={"filename": file.filename, "ticks_imported": 0},
             )
 
-        session = get_db_session()
+        # Parse CSV (MT5 format: Date,Time,Symbol,Bid,Ask,Volume)
+        ticks_imported = 0
+        errors = 0
 
-        if session is None:
-            # Demo mode - return simulated success
-            return APIResponse(
-                success=True,
-                message=f"Demo mode: Would import {len(ticks)} ticks",
-                data={"file_path": request.file_path, "symbol": request.symbol, "ticks_imported": len(ticks)},
-            )
+        for line in lines[1:]:  # Skip header
+            try:
+                parts = line.strip().split(',')
+                if len(parts) < 5:
+                    errors += 1
+                    continue
 
-        try:
-            cleaner = create_cleaner()
-            cleaned_ticks = cleaner.clean_dict_list(ticks)
+                # Parse MT5 date format: 2024.01.15,09:30:00.000
+                date_str = parts[0]
+                time_str = parts[1]
+                csv_symbol = parts[2]
+                bid = float(parts[3])
+                ask = float(parts[4])
+                volume = float(parts[5]) if len(parts) > 5 else 0.0
 
-            tick_objects = []
-            for tick_data in cleaned_ticks:
-                tick = Tick(
-                    timestamp=tick_data["timestamp"],
-                    symbol=tick_data.get("symbol", request.symbol),
-                    bid=tick_data["bid"],
-                    ask=tick_data["ask"],
-                    bid_size=tick_data.get("bid_size", 0),
-                    ask_size=tick_data.get("ask_size", 0),
-                    volume=tick_data.get("volume", 0.0),
-                    is_valid=tick_data.get("is_valid", 1),
-                    session=tick_data.get("session"),
-                    volatility_bucket=tick_data.get("volatility_bucket"),
+                # Convert date format: 2024.01.15 -> 2024-01-15
+                date_formatted = date_str.replace('.', '-')
+                timestamp = datetime.fromisoformat(f"{date_formatted}T{time_str}")
+
+                tick = TickData(
+                    symbol=csv_symbol,
+                    timestamp=timestamp,
+                    bid=bid,
+                    ask=ask,
+                    spread=round(ask - bid, 2),
+                    volume=volume,
+                    tick_type="normal",
+                    is_cleaned=0,
                 )
-                tick_objects.append(tick)
+                db.add(tick)
+                ticks_imported += 1
 
-            session.add_all(tick_objects)
-            session.commit()
+            except Exception:
+                errors += 1
+                continue
 
-            return APIResponse(
-                success=True,
-                message=f"Successfully imported {len(tick_objects)} ticks",
-                data={
-                    "file_path": request.file_path,
-                    "symbol": request.symbol,
-                    "ticks_imported": len(tick_objects),
-                    "ticks_filtered": len(ticks) - len(cleaned_ticks),
-                },
-            )
+        # Batch commit every 1000 records
+        if ticks_imported % 1000 == 0:
+            db.commit()
 
-        except SQLAlchemyError as e:
-            session.rollback()
-            logger.error(f"Database error during import: {e}")
-            return APIResponse(
-                success=False,
-                message=f"Database error: {str(e)}",
-                data={"file_path": request.file_path, "symbol": request.symbol},
-            )
-        finally:
-            session.close()
+        db.commit()
 
-    except FileNotFoundError as e:
-        raise HTTPException(status_code=404, detail=str(e))
+        return APIResponse(
+            success=True,
+            message=f"Imported {ticks_imported} ticks",
+            data={
+                "filename": file.filename,
+                "symbol": symbol,
+                "ticks_imported": ticks_imported,
+                "errors": errors,
+            },
+        )
+
     except Exception as e:
-        logger.error(f"Error importing data: {e}")
+        logger.error(f"Error importing CSV: {e}")
         raise HTTPException(status_code=500, detail=f"Import failed: {str(e)}")
 
 
-@router.post("/clean", response_model=APIResponse)
-async def clean_data(request: DataCleanRequest):
-    """Clean tick data using BatchCleaner."""
-    try:
-        session = get_db_session()
-
-        if session is None:
-            return APIResponse(
-                success=True,
-                message="Demo mode: Would clean ticks",
-                data={"symbol": request.symbol, "ticks_cleaned": 0},
-            )
-
-        try:
-            query = select(Tick).where(Tick.symbol == request.symbol)
-
-            if request.start_time:
-                query = query.where(Tick.timestamp >= request.start_time)
-            if request.end_time:
-                query = query.where(Tick.timestamp <= request.end_time)
-
-            result = session.execute(query)
-            ticks = result.scalars().all()
-
-            if not ticks:
-                return APIResponse(
-                    success=True,
-                    message="No ticks found in time range",
-                    data={"symbol": request.symbol, "ticks_cleaned": 0},
-                )
-
-            tick_dicts = [
-                {
-                    "timestamp": t.timestamp,
-                    "symbol": t.symbol,
-                    "bid": t.bid,
-                    "ask": t.ask,
-                    "bid_size": t.bid_size,
-                    "ask_size": t.ask_size,
-                    "volume": t.volume,
-                }
-                for t in ticks
-            ]
-
-            cleaner = create_cleaner()
-            cleaned_ticks = cleaner.clean_dict_list(tick_dicts)
-
-            cleaned_ids = {ct["timestamp"] for ct in cleaned_ticks}
-            for tick in ticks:
-                tick.is_valid = 1 if tick.timestamp in cleaned_ids else 0
-
-            session.commit()
-
-            return APIResponse(
-                success=True,
-                message=f"Cleaned {len(cleaned_ticks)} ticks",
-                data={
-                    "symbol": request.symbol,
-                    "ticks_cleaned": len(cleaned_ticks),
-                    "ticks_filtered": len(ticks) - len(cleaned_ticks),
-                },
-            )
-
-        except SQLAlchemyError as e:
-            session.rollback()
-            logger.error(f"Database error during cleaning: {e}")
-            return APIResponse(
-                success=False,
-                message=f"Database error: {str(e)}",
-                data={"symbol": request.symbol},
-            )
-        finally:
-            session.close()
-
-    except Exception as e:
-        logger.error(f"Error cleaning data: {e}")
-        raise HTTPException(status_code=500, detail=f"Cleaning failed: {str(e)}")
-
-
-@router.get("/ticks", response_model=TickListResponse)
+@router.get("/ticks", response_model=Dict[str, Any])
 async def get_ticks(
-    symbol: str = "XAUUSD",
-    start_time: Optional[datetime] = None,
-    end_time: Optional[datetime] = None,
-    limit: int = 100,
-    offset: int = 0,
+    symbol: str = Query("XAUUSD", description="Trading symbol"),
+    start_time: Optional[datetime] = Query(None, description="Start time filter"),
+    end_time: Optional[datetime] = Query(None, description="End time filter"),
+    limit: int = Query(100, ge=1, le=1000, description="Number of records"),
+    offset: int = Query(0, ge=0, description="Offset for pagination"),
+    db: Session = Depends(get_db)
 ):
-    """Get tick list with pagination."""
-    session = get_db_session()
+    """Get tick data from database."""
+    query = db.query(TickData).filter(TickData.symbol == symbol)
 
-    if session is None:
-        # Demo mode - return simulated ticks
-        demo_ticks = [
-            TickResponse(
-                id=i,
-                timestamp=datetime.utcnow(),
-                symbol=symbol,
-                bid=2344.50 + i * 0.01,
-                ask=2344.52 + i * 0.01,
-                bid_size=100,
-                ask_size=100,
-                volume=1.5,
-                is_valid=1,
-                session="london",
-                volatility_bucket="high",
-            )
-            for i in range(min(limit, 10))
-        ]
-        return TickListResponse(total=len(demo_ticks), ticks=demo_ticks)
+    if start_time:
+        query = query.filter(TickData.timestamp >= start_time)
+    if end_time:
+        query = query.filter(TickData.timestamp <= end_time)
 
-    try:
-        count_query = select(func.count(Tick.id)).where(Tick.symbol == symbol)
-        if start_time:
-            count_query = count_query.where(Tick.timestamp >= start_time)
-        if end_time:
-            count_query = count_query.where(Tick.timestamp <= end_time)
+    total = query.count()
+    ticks = query.order_by(desc(TickData.timestamp)).offset(offset).limit(limit).all()
 
-        total = session.execute(count_query).scalar()
-
-        query = (
-            select(Tick)
-            .where(Tick.symbol == symbol)
-            .order_by(Tick.timestamp.desc())
-            .offset(offset)
-            .limit(limit)
-        )
-        if start_time:
-            query = query.where(Tick.timestamp >= start_time)
-        if end_time:
-            query = query.where(Tick.timestamp <= end_time)
-
-        result = session.execute(query)
-        ticks = result.scalars().all()
-
-        tick_responses = [
-            TickResponse(
-                id=t.id,
-                timestamp=t.timestamp,
-                symbol=t.symbol,
-                bid=t.bid,
-                ask=t.ask,
-                bid_size=t.bid_size,
-                ask_size=t.ask_size,
-                volume=t.volume,
-                is_valid=t.is_valid,
-                session=t.session,
-                volatility_bucket=t.volatility_bucket,
-            )
+    return {
+        "total": total,
+        "limit": limit,
+        "offset": offset,
+        "symbol": symbol,
+        "ticks": [
+            {
+                "id": t.id,
+                "uuid": str(t.uuid),
+                "symbol": t.symbol,
+                "timestamp": t.timestamp.isoformat() if t.timestamp else None,
+                "bid": t.bid,
+                "ask": t.ask,
+                "spread": t.spread,
+                "volume": t.volume,
+                "tick_type": t.tick_type,
+                "is_cleaned": t.is_cleaned,
+            }
             for t in ticks
-        ]
-
-        return TickListResponse(total=total, ticks=tick_responses)
-
-    except SQLAlchemyError as e:
-        logger.error(f"Database error fetching ticks: {e}")
-        return TickListResponse(total=0, ticks=[])
-    finally:
-        session.close()
+        ],
+    }
 
 
-@router.get("/ticks/{tick_id}", response_model=TickResponse)
-async def get_tick(tick_id: int):
-    """Get single tick by ID."""
-    session = get_db_session()
+@router.get("/ticks/stats", response_model=Dict[str, Any])
+async def get_tick_stats(
+    symbol: str = Query("XAUUSD", description="Trading symbol"),
+    db: Session = Depends(get_db)
+):
+    """Get statistics about tick data."""
+    base_query = db.query(TickData).filter(TickData.symbol == symbol)
 
-    if session is None:
-        return TickResponse(
-            id=tick_id,
-            timestamp=datetime.utcnow(),
-            symbol="XAUUSD",
-            bid=2344.50,
-            ask=2344.52,
-            bid_size=100,
-            ask_size=100,
-            volume=1.5,
-            is_valid=1,
-            session="london",
-            volatility_bucket="high",
+    total_ticks = base_query.count()
+    cleaned_ticks = base_query.filter(TickData.is_cleaned == 1).count()
+    raw_ticks = base_query.filter(TickData.is_cleaned == 0).count()
+
+    # Get time range
+    oldest = base_query.order_by(TickData.timestamp.asc()).first()
+    newest = base_query.order_by(TickData.timestamp.desc()).first()
+
+    return {
+        "symbol": symbol,
+        "total_ticks": total_ticks,
+        "cleaned_ticks": cleaned_ticks,
+        "raw_ticks": raw_ticks,
+        "oldest_tick": oldest.timestamp.isoformat() if oldest else None,
+        "newest_tick": newest.timestamp.isoformat() if newest else None,
+    }
+
+
+@router.delete("/ticks", response_model=APIResponse)
+async def delete_ticks(
+    symbol: str = Query("XAUUSD", description="Trading symbol"),
+    before: Optional[datetime] = Query(None, description="Delete ticks before this time"),
+    db: Session = Depends(get_db)
+):
+    """Delete tick data (for cleanup)."""
+    query = db.query(TickData).filter(TickData.symbol == symbol)
+
+    if before:
+        query = query.filter(TickData.timestamp < before)
+
+    deleted = query.delete()
+    db.commit()
+
+    return APIResponse(
+        success=True,
+        message=f"Deleted {deleted} ticks",
+        data={"deleted": deleted, "symbol": symbol},
+    )
+
+
+@router.post("/simulate", response_model=APIResponse)
+async def generate_simulated_ticks(
+    count: int = Query(1000, ge=1, le=100000, description="Number of ticks to generate"),
+    symbol: str = Query("XAUUSD", description="Trading symbol"),
+    db: Session = Depends(get_db)
+):
+    """Generate simulated tick data for testing.
+
+    This creates realistic XAUUSD price movements based on:
+    - Random walk with drift
+    - Volatility clustering
+    - Realistic spread patterns
+    """
+    simulator = MT5Simulator(symbol=symbol)
+
+    ticks_generated = 0
+    batch_size = 500
+    tick_objects = []
+
+    for i in range(count):
+        tick_data = simulator.generate_tick()
+
+        tick = TickData(
+            symbol=tick_data.symbol,
+            timestamp=tick_data.timestamp,
+            bid=tick_data.bid,
+            ask=tick_data.ask,
+            spread=tick_data.spread,
+            volume=tick_data.volume,
+            tick_type=tick_data.tick_type,
+            is_cleaned=0,
         )
+        tick_objects.append(tick)
+        ticks_generated += 1
 
-    try:
-        result = session.execute(select(Tick).where(Tick.id == tick_id))
-        tick = result.scalar_one_or_none()
+        # Batch insert
+        if len(tick_objects) >= batch_size:
+            db.bulk_save_objects(tick_objects)
+            db.commit()
+            tick_objects = []
 
-        if not tick:
-            raise HTTPException(status_code=404, detail="Tick not found")
+    # Save remaining
+    if tick_objects:
+        db.bulk_save_objects(tick_objects)
+        db.commit()
 
-        return TickResponse(
-            id=tick.id,
-            timestamp=tick.timestamp,
-            symbol=tick.symbol,
-            bid=tick.bid,
-            ask=tick.ask,
-            bid_size=tick.bid_size,
-            ask_size=tick.ask_size,
-            volume=tick.volume,
-            is_valid=tick.is_valid,
-            session=tick.session,
-            volatility_bucket=tick.volatility_bucket,
-        )
-
-    except HTTPException:
-        raise
-    except SQLAlchemyError as e:
-        logger.error(f"Database error fetching tick: {e}")
-        raise HTTPException(status_code=500, detail="Database error")
-    finally:
-        session.close()
+    return APIResponse(
+        success=True,
+        message=f"Generated {ticks_generated} simulated ticks",
+        data={
+            "ticks_generated": ticks_generated,
+            "symbol": symbol,
+            "mode": "simulator",
+        },
+    )
